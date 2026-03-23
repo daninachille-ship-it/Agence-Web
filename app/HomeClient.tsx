@@ -20,7 +20,7 @@ interface HomeClientProps {
 
 // Renders all sections from a config object
 function HomeContent({ config, tina }: { config: any; tina?: any }) {
-  const { etablissement, contact, horaires, menu, avis, images, style, textes } = config
+  const { etablissement, contact, horaires, menu, avis, images, style } = config
 
   return (
     <>
@@ -35,7 +35,6 @@ function HomeContent({ config, tina }: { config: any; tina?: any }) {
           slogan={etablissement?.slogan}
           localisation={etablissement?.localisation}
           heroImage={images?.hero}
-          heroCta={textes?.heroCta}
         />
       </div>
 
@@ -51,23 +50,22 @@ function HomeContent({ config, tina }: { config: any; tina?: any }) {
           anneesExistence={etablissement?.anneesExistence}
           aboutPrincipale={images?.aboutPrincipale}
           aboutSecondaire={images?.aboutSecondaire}
-          aboutTitre={textes?.aboutTitre}
         />
       </div>
 
       {/* Menu */}
       <div data-tina-field={tina ? tinaField(tina, 'menu') : undefined}>
-        <Menu menu={menu} menuTitre={textes?.menuTitre} />
+        <Menu menu={menu} />
       </div>
 
       {/* Galerie */}
       <div data-tina-field={tina ? tinaField(tina, 'images') : undefined}>
-        <Gallery images={images?.galerie} nom={etablissement?.nom} galerieSousTitre={textes?.galerieSousTitre} />
+        <Gallery images={images?.galerie} nom={etablissement?.nom} />
       </div>
 
       {/* Horaires */}
       <div data-tina-field={tina ? tinaField(tina, 'horaires') : undefined}>
-        <Hours horaires={horaires} contact={contact} horairesCta={textes?.horairesCta} />
+        <Hours horaires={horaires} contact={contact} />
       </div>
 
       {/* Avis */}
@@ -76,7 +74,6 @@ function HomeContent({ config, tina }: { config: any; tina?: any }) {
           avis={avis}
           noteGoogle={etablissement?.noteGoogle}
           nombreAvis={etablissement?.nombreAvis}
-          avisTitre={textes?.avisTitre}
         />
       </div>
 
@@ -88,7 +85,6 @@ function HomeContent({ config, tina }: { config: any; tina?: any }) {
           parking={contact?.parking}
           lienGoogleMaps={contact?.lienGoogleMaps}
           nom={etablissement?.nom}
-          mapTitre={textes?.mapTitre}
         />
       </div>
 

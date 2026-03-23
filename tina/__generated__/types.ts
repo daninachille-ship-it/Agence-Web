@@ -236,24 +236,6 @@ export type ConfigStyle = {
   nomDomaine?: Maybe<Scalars['String']['output']>;
 };
 
-export type ConfigTextes = {
-  __typename?: 'ConfigTextes';
-  heroCta?: Maybe<Scalars['String']['output']>;
-  aboutTitre?: Maybe<Scalars['String']['output']>;
-  menuTitre?: Maybe<Scalars['String']['output']>;
-  galerieSousTitre?: Maybe<Scalars['String']['output']>;
-  horairesCta?: Maybe<Scalars['String']['output']>;
-  avisTitre?: Maybe<Scalars['String']['output']>;
-  mapTitre?: Maybe<Scalars['String']['output']>;
-};
-
-export type ConfigSeo = {
-  __typename?: 'ConfigSeo';
-  titre?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  ogImage?: Maybe<Scalars['String']['output']>;
-};
-
 export type Config = Node & Document & {
   __typename?: 'Config';
   etablissement?: Maybe<ConfigEtablissement>;
@@ -263,8 +245,6 @@ export type Config = Node & Document & {
   avis?: Maybe<Array<Maybe<ConfigAvis>>>;
   images?: Maybe<ConfigImages>;
   style?: Maybe<ConfigStyle>;
-  textes?: Maybe<ConfigTextes>;
-  seo?: Maybe<ConfigSeo>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -362,22 +342,6 @@ export type ConfigStyleFilter = {
   nomDomaine?: InputMaybe<StringFilter>;
 };
 
-export type ConfigTextesFilter = {
-  heroCta?: InputMaybe<StringFilter>;
-  aboutTitre?: InputMaybe<StringFilter>;
-  menuTitre?: InputMaybe<StringFilter>;
-  galerieSousTitre?: InputMaybe<StringFilter>;
-  horairesCta?: InputMaybe<StringFilter>;
-  avisTitre?: InputMaybe<StringFilter>;
-  mapTitre?: InputMaybe<StringFilter>;
-};
-
-export type ConfigSeoFilter = {
-  titre?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  ogImage?: InputMaybe<ImageFilter>;
-};
-
 export type ConfigFilter = {
   etablissement?: InputMaybe<ConfigEtablissementFilter>;
   contact?: InputMaybe<ConfigContactFilter>;
@@ -386,8 +350,6 @@ export type ConfigFilter = {
   avis?: InputMaybe<ConfigAvisFilter>;
   images?: InputMaybe<ConfigImagesFilter>;
   style?: InputMaybe<ConfigStyleFilter>;
-  textes?: InputMaybe<ConfigTextesFilter>;
-  seo?: InputMaybe<ConfigSeoFilter>;
 };
 
 export type ConfigConnectionEdges = {
@@ -531,22 +493,6 @@ export type ConfigStyleMutation = {
   nomDomaine?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ConfigTextesMutation = {
-  heroCta?: InputMaybe<Scalars['String']['input']>;
-  aboutTitre?: InputMaybe<Scalars['String']['input']>;
-  menuTitre?: InputMaybe<Scalars['String']['input']>;
-  galerieSousTitre?: InputMaybe<Scalars['String']['input']>;
-  horairesCta?: InputMaybe<Scalars['String']['input']>;
-  avisTitre?: InputMaybe<Scalars['String']['input']>;
-  mapTitre?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ConfigSeoMutation = {
-  titre?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  ogImage?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type ConfigMutation = {
   etablissement?: InputMaybe<ConfigEtablissementMutation>;
   contact?: InputMaybe<ConfigContactMutation>;
@@ -555,18 +501,16 @@ export type ConfigMutation = {
   avis?: InputMaybe<Array<InputMaybe<ConfigAvisMutation>>>;
   images?: InputMaybe<ConfigImagesMutation>;
   style?: InputMaybe<ConfigStyleMutation>;
-  textes?: InputMaybe<ConfigTextesMutation>;
-  seo?: InputMaybe<ConfigSeoMutation>;
 };
 
-export type ConfigPartsFragment = { __typename: 'Config', etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null, textes?: { __typename: 'ConfigTextes', heroCta?: string | null, aboutTitre?: string | null, menuTitre?: string | null, galerieSousTitre?: string | null, horairesCta?: string | null, avisTitre?: string | null, mapTitre?: string | null } | null, seo?: { __typename: 'ConfigSeo', titre?: string | null, description?: string | null, ogImage?: string | null } | null };
+export type ConfigPartsFragment = { __typename: 'Config', etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null };
 
 export type ConfigQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type ConfigQuery = { __typename?: 'Query', config: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null, textes?: { __typename: 'ConfigTextes', heroCta?: string | null, aboutTitre?: string | null, menuTitre?: string | null, galerieSousTitre?: string | null, horairesCta?: string | null, avisTitre?: string | null, mapTitre?: string | null } | null, seo?: { __typename: 'ConfigSeo', titre?: string | null, description?: string | null, ogImage?: string | null } | null } };
+export type ConfigQuery = { __typename?: 'Query', config: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null } };
 
 export type ConfigConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -578,7 +522,7 @@ export type ConfigConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ConfigConnectionQuery = { __typename?: 'Query', configConnection: { __typename?: 'ConfigConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConfigConnectionEdges', cursor: string, node?: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null, textes?: { __typename: 'ConfigTextes', heroCta?: string | null, aboutTitre?: string | null, menuTitre?: string | null, galerieSousTitre?: string | null, horairesCta?: string | null, avisTitre?: string | null, mapTitre?: string | null } | null, seo?: { __typename: 'ConfigSeo', titre?: string | null, description?: string | null, ogImage?: string | null } | null } | null } | null> | null } };
+export type ConfigConnectionQuery = { __typename?: 'Query', configConnection: { __typename?: 'ConfigConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConfigConnectionEdges', cursor: string, node?: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null } | null } | null> | null } };
 
 export const ConfigPartsFragmentDoc = gql`
     fragment ConfigParts on Config {
@@ -644,22 +588,6 @@ export const ConfigPartsFragmentDoc = gql`
     couleurPrincipale
     couleurSecondaire
     nomDomaine
-  }
-  textes {
-    __typename
-    heroCta
-    aboutTitre
-    menuTitre
-    galerieSousTitre
-    horairesCta
-    avisTitre
-    mapTitre
-  }
-  seo {
-    __typename
-    titre
-    description
-    ogImage
   }
 }
     `;
