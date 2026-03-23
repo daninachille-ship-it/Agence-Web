@@ -4,9 +4,10 @@ interface MapSectionProps {
   parking: string
   lienGoogleMaps: string
   nom: string
+  mapTitre?: string
 }
 
-export default function MapSection({ adresse, metro, parking, lienGoogleMaps, nom }: MapSectionProps) {
+export default function MapSection({ adresse, metro, parking, lienGoogleMaps, nom, mapTitre }: MapSectionProps) {
   // Build an embed URL using the address
   const encodedAddr = encodeURIComponent(adresse)
   const embedUrl = `https://maps.google.com/maps?q=${encodedAddr}&output=embed`
@@ -35,7 +36,7 @@ export default function MapSection({ adresse, metro, parking, lienGoogleMaps, no
           Nous trouver
         </p>
         <h2 className="r d1 font-playfair text-3xl md:text-4xl font-light text-[#FDFAF4] mb-10 leading-tight">
-          Venez nous <em className="italic text-[#D9C9AE]">rendre visite</em>
+          {mapTitre || 'Venez nous rendre visite'}
         </h2>
 
         <ul className="space-y-6 mb-10">

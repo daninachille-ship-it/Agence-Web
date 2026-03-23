@@ -8,6 +8,7 @@ interface AboutProps {
   anneesExistence: string
   aboutPrincipale: string
   aboutSecondaire: string
+  aboutTitre?: string
 }
 
 export default function About({
@@ -20,6 +21,7 @@ export default function About({
   anneesExistence,
   aboutPrincipale,
   aboutSecondaire,
+  aboutTitre,
 }: AboutProps) {
   return (
     <section id="histoire" className="bg-[#FDFAF4] py-28 px-6 md:px-16">
@@ -69,8 +71,7 @@ export default function About({
 
           {/* Title */}
           <h2 className="r d2 font-playfair text-4xl md:text-5xl font-light text-ink leading-tight mb-8">
-            L'art du café,{' '}
-            <em className="italic text-terra font-light">chaque matin</em>
+            {aboutTitre || "L'art du café, chaque matin"}
           </h2>
 
           {/* Paragraphs */}

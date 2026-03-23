@@ -16,9 +16,10 @@ interface MenuCategory {
 
 interface MenuProps {
   menu: MenuCategory[]
+  menuTitre?: string
 }
 
-export default function Menu({ menu }: MenuProps) {
+export default function Menu({ menu, menuTitre }: MenuProps) {
   const [activeTab, setActiveTab] = useState(0)
 
   const current = menu[activeTab]
@@ -33,7 +34,7 @@ export default function Menu({ menu }: MenuProps) {
             À la carte
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-light text-ink">
-            Ce que nous <em className="italic text-terra">préparons</em>
+            {menuTitre || 'Ce que nous préparons'}
           </h2>
         </div>
 
