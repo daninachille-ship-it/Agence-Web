@@ -112,10 +112,7 @@ function HomeWithTina({ data, query, variables }: HomeClientProps) {
   return <HomeContent config={tinaData.config} tina={tinaData.config} />
 }
 
-// Entry point — only uses useTina when we have a real query
+// Entry point — always delegates to HomeWithTina (query is always valid)
 export default function HomeClient({ data, query, variables }: HomeClientProps) {
-  if (!query) {
-    return <HomeContent config={data.config} />
-  }
   return <HomeWithTina data={data} query={query} variables={variables} />
 }
