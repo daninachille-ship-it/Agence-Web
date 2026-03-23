@@ -34,5 +34,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# tina generated
-/tina/__generated__
+# tina generated (only exclude local cache)
+/tina/__generated__/.cache

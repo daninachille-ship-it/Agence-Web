@@ -18,9 +18,8 @@ interface HomeClientProps {
   variables: object
 }
 
-export default function HomeClient({ data, query, variables }: HomeClientProps) {
-  const { data: tinaData } = useTina({ query, variables, data })
-  const config = tinaData.config
+// Renders all sections from a config object
+function HomeContent({ config, tina }: { config: any; tina?: any }) {
   const { etablissement, contact, horaires, menu, avis, images, style, textes } = config
 
   return (
@@ -30,7 +29,7 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
       <Nav nom={etablissement?.nom} />
 
       {/* Hero */}
-      <div data-tina-field={tinaField(config, 'etablissement')}>
+      <div data-tina-field={tina ? tinaField(tina, 'etablissement') : undefined}>
         <Hero
           nom={etablissement?.nom}
           slogan={etablissement?.slogan}
@@ -41,7 +40,7 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
       </div>
 
       {/* À propos */}
-      <div data-tina-field={tinaField(config, 'etablissement')}>
+      <div data-tina-field={tina ? tinaField(tina, 'etablissement') : undefined}>
         <About
           nom={etablissement?.nom}
           description1={etablissement?.description1}
@@ -57,22 +56,22 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
       </div>
 
       {/* Menu */}
-      <div data-tina-field={tinaField(config, 'menu')}>
+      <div data-tina-field={tina ? tinaField(tina, 'menu') : undefined}>
         <Menu menu={menu} menuTitre={textes?.menuTitre} />
       </div>
 
       {/* Galerie */}
-      <div data-tina-field={tinaField(config, 'images')}>
+      <div data-tina-field={tina ? tinaField(tina, 'images') : undefined}>
         <Gallery images={images?.galerie} nom={etablissement?.nom} galerieSousTitre={textes?.galerieSousTitre} />
       </div>
 
       {/* Horaires */}
-      <div data-tina-field={tinaField(config, 'horaires')}>
+      <div data-tina-field={tina ? tinaField(tina, 'horaires') : undefined}>
         <Hours horaires={horaires} contact={contact} horairesCta={textes?.horairesCta} />
       </div>
 
       {/* Avis */}
-      <div data-tina-field={tinaField(config, 'avis')}>
+      <div data-tina-field={tina ? tinaField(tina, 'avis') : undefined}>
         <Reviews
           avis={avis}
           noteGoogle={etablissement?.noteGoogle}
@@ -81,8 +80,8 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
         />
       </div>
 
-      {/* Carte / Map */}
-      <div data-tina-field={tinaField(config, 'contact')}>
+      {/* Localisation */}
+      <div data-tina-field={tina ? tinaField(tina, 'contact') : undefined}>
         <MapSection
           adresse={contact?.adresse}
           metro={contact?.metro}
@@ -105,4 +104,18 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
       />
     </>
   )
+}
+
+// Inner component — always has a valid query, safe to call useTina
+function HomeWithTina({ data, query, variables }: HomeClientProps) {
+  const { data: tinaData } = useTina({ query, variables, data })
+  return <HomeContent config={tinaData.config} tina={tinaData.config} />
+}
+
+// Entry point — only uses useTina when we have a real query
+export default function HomeClient({ data, query, variables }: HomeClientProps) {
+  if (!query) {
+    return <HomeContent config={data.config} />
+  }
+  return <HomeWithTina data={data} query={query} variables={variables} />
 }
