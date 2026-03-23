@@ -2,7 +2,8 @@ import { client } from '@/tina/__generated__/client'
 import HomeClient from './HomeClient'
 import configData from '@/content/config.json'
 
-export const dynamic = 'force-dynamic'
+// Revalidate every 60 seconds — page is cached and refreshes automatically
+export const revalidate = 60
 
 export default async function Home() {
   try {
