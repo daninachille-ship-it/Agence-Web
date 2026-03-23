@@ -62,4 +62,20 @@ fragment ConfigParts on Config {
     couleurSecondaire
     nomDomaine
   }
+  textes {
+    __typename
+    heroCta
+    aboutTitre
+    menuTitre
+    galerieSousTitre
+    horairesCta
+    avisTitre
+    mapTitre
+  }
+  seo {
+    __typename
+    titre
+    description
+    ogImage
+  }
 }
