@@ -140,11 +140,10 @@ export default defineConfig({
               { type: 'image', name: 'aboutPrincipale', label: 'Photo "Notre histoire" principale' },
               { type: 'image', name: 'aboutSecondaire', label: 'Photo "Notre histoire" secondaire' },
               {
-                type: 'string',
+                type: 'image',
                 name: 'galerie',
                 label: 'Photos de la galerie',
                 list: true,
-                ui: { component: 'image' },
               },
             ],
           },
