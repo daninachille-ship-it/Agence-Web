@@ -1,9 +1,10 @@
 interface GalleryProps {
   images: string[]
   nom: string
+  galerieSousTitre?: string
 }
 
-export default function Gallery({ images, nom }: GalleryProps) {
+export default function Gallery({ images, nom, galerieSousTitre }: GalleryProps) {
   const [img1, img2, img3, img4, img5] = images
 
   return (
@@ -17,7 +18,7 @@ export default function Gallery({ images, nom }: GalleryProps) {
             <em className="italic text-[#D9C9AE]">Maison Blend</em>
           </h2>
           <p className="font-jost font-light text-muted text-sm max-w-xs md:text-right leading-relaxed">
-            Un espace pensé pour que chaque moment soit mémorable.
+            {galerieSousTitre || 'Un espace pensé pour que chaque moment soit mémorable.'}
           </p>
         </div>
 

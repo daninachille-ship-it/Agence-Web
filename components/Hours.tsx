@@ -16,6 +16,7 @@ interface HoursProps {
     instagram: string
     lienReservation: string
   }
+  horairesCta?: string
 }
 
 const DAYS_FR_TO_IDX: Record<string, number> = {
@@ -23,7 +24,7 @@ const DAYS_FR_TO_IDX: Record<string, number> = {
   Jeudi: 4, Vendredi: 5, Samedi: 6,
 }
 
-export default function Hours({ horaires, contact }: HoursProps) {
+export default function Hours({ horaires, contact, horairesCta }: HoursProps) {
   const todayIdx = new Date().getDay() // 0=Sun … 6=Sat
   const todayName = Object.entries(DAYS_FR_TO_IDX).find(([, v]) => v === todayIdx)?.[0] ?? ''
 
@@ -134,7 +135,7 @@ export default function Hours({ horaires, contact }: HoursProps) {
                   rel="noopener noreferrer"
                   className="btn-fill inline-block bg-terra text-[#FDFAF4] font-jost font-light text-sm tracking-widest uppercase px-10 py-4 border border-terra transition-colors duration-300"
                 >
-                  Réserver une table
+                  {horairesCta || 'Réserver une table'}
                 </a>
               </div>
             )}

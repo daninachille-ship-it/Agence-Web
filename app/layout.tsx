@@ -2,9 +2,16 @@ import type { Metadata } from 'next'
 import './globals.css'
 import configData from '@/content/config.json'
 
+const seo = (configData as any).seo
+
 export const metadata: Metadata = {
-  title: `${configData.etablissement.nom} — ${configData.etablissement.slogan}`,
-  description: configData.etablissement.description1,
+  title: seo?.titre || `${configData.etablissement.nom} — ${configData.etablissement.slogan}`,
+  description: seo?.description || configData.etablissement.description1,
+  openGraph: {
+    title: seo?.titre || `${configData.etablissement.nom} — ${configData.etablissement.slogan}`,
+    description: seo?.description || configData.etablissement.description1,
+    images: seo?.ogImage ? [{ url: seo.ogImage }] : [],
+  },
 }
 
 export default function RootLayout({

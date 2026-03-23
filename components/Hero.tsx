@@ -7,9 +7,10 @@ interface HeroProps {
   slogan: string
   localisation: string
   heroImage: string
+  heroCta?: string
 }
 
-export default function Hero({ nom, slogan, localisation, heroImage }: HeroProps) {
+export default function Hero({ nom, slogan, localisation, heroImage, heroCta }: HeroProps) {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -80,7 +81,7 @@ export default function Hero({ nom, slogan, localisation, heroImage }: HeroProps
               href="#carte"
               className="btn-fill inline-block bg-terra text-[#FDFAF4] font-jost font-light text-sm tracking-widest uppercase px-10 py-4 border border-terra transition-colors duration-300"
             >
-              Voir la carte
+              {heroCta || 'Voir la carte'}
             </a>
           </div>
         </div>

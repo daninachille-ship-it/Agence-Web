@@ -21,7 +21,7 @@ interface HomeClientProps {
 export default function HomeClient({ data, query, variables }: HomeClientProps) {
   const { data: tinaData } = useTina({ query, variables, data })
   const config = tinaData.config
-  const { etablissement, contact, horaires, menu, avis, images, style } = config
+  const { etablissement, contact, horaires, menu, avis, images, style, textes } = config
 
   return (
     <>
@@ -36,6 +36,7 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
           slogan={etablissement?.slogan}
           localisation={etablissement?.localisation}
           heroImage={images?.hero}
+          heroCta={textes?.heroCta}
         />
       </div>
 
@@ -51,22 +52,23 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
           anneesExistence={etablissement?.anneesExistence}
           aboutPrincipale={images?.aboutPrincipale}
           aboutSecondaire={images?.aboutSecondaire}
+          aboutTitre={textes?.aboutTitre}
         />
       </div>
 
       {/* Menu */}
       <div data-tina-field={tinaField(config, 'menu')}>
-        <Menu menu={menu} />
+        <Menu menu={menu} menuTitre={textes?.menuTitre} />
       </div>
 
       {/* Galerie */}
       <div data-tina-field={tinaField(config, 'images')}>
-        <Gallery images={images?.galerie} nom={etablissement?.nom} />
+        <Gallery images={images?.galerie} nom={etablissement?.nom} galerieSousTitre={textes?.galerieSousTitre} />
       </div>
 
       {/* Horaires */}
       <div data-tina-field={tinaField(config, 'horaires')}>
-        <Hours horaires={horaires} contact={contact} />
+        <Hours horaires={horaires} contact={contact} horairesCta={textes?.horairesCta} />
       </div>
 
       {/* Avis */}
@@ -75,6 +77,7 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
           avis={avis}
           noteGoogle={etablissement?.noteGoogle}
           nombreAvis={etablissement?.nombreAvis}
+          avisTitre={textes?.avisTitre}
         />
       </div>
 
@@ -86,6 +89,7 @@ export default function HomeClient({ data, query, variables }: HomeClientProps) 
           parking={contact?.parking}
           lienGoogleMaps={contact?.lienGoogleMaps}
           nom={etablissement?.nom}
+          mapTitre={textes?.mapTitre}
         />
       </div>
 

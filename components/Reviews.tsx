@@ -9,9 +9,10 @@ interface ReviewsProps {
   avis: Review[]
   noteGoogle: string
   nombreAvis: string
+  avisTitre?: string
 }
 
-export default function Reviews({ avis, noteGoogle, nombreAvis }: ReviewsProps) {
+export default function Reviews({ avis, noteGoogle, nombreAvis, avisTitre }: ReviewsProps) {
   return (
     <section className="bg-cream2 py-28 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
@@ -23,7 +24,7 @@ export default function Reviews({ avis, noteGoogle, nombreAvis }: ReviewsProps) 
               Ce qu'ils en disent
             </p>
             <h2 className="font-playfair text-4xl md:text-5xl font-light text-ink">
-              Ils nous font <em className="italic text-terra">confiance</em>
+              {avisTitre || 'Ils nous font confiance'}
             </h2>
           </div>
           <div className="text-right">
