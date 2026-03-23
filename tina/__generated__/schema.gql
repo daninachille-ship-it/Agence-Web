@@ -150,6 +150,22 @@ type ConfigStyle {
   nomDomaine: String
 }
 
+type ConfigTextes {
+  heroCta: String
+  aboutTitre: String
+  menuTitre: String
+  galerieSousTitre: String
+  horairesCta: String
+  avisTitre: String
+  mapTitre: String
+}
+
+type ConfigSeo {
+  titre: String
+  description: String
+  ogImage: String
+}
+
 type Config implements Node & Document {
   etablissement: ConfigEtablissement
   contact: ConfigContact
@@ -158,6 +174,8 @@ type Config implements Node & Document {
   avis: [ConfigAvis]
   images: ConfigImages
   style: ConfigStyle
+  textes: ConfigTextes
+  seo: ConfigSeo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -246,13 +264,29 @@ input ConfigImagesFilter {
   hero: ImageFilter
   aboutPrincipale: ImageFilter
   aboutSecondaire: ImageFilter
-  galerie: StringFilter
+  galerie: ImageFilter
 }
 
 input ConfigStyleFilter {
   couleurPrincipale: StringFilter
   couleurSecondaire: StringFilter
   nomDomaine: StringFilter
+}
+
+input ConfigTextesFilter {
+  heroCta: StringFilter
+  aboutTitre: StringFilter
+  menuTitre: StringFilter
+  galerieSousTitre: StringFilter
+  horairesCta: StringFilter
+  avisTitre: StringFilter
+  mapTitre: StringFilter
+}
+
+input ConfigSeoFilter {
+  titre: StringFilter
+  description: StringFilter
+  ogImage: ImageFilter
 }
 
 input ConfigFilter {
@@ -263,6 +297,8 @@ input ConfigFilter {
   avis: ConfigAvisFilter
   images: ConfigImagesFilter
   style: ConfigStyleFilter
+  textes: ConfigTextesFilter
+  seo: ConfigSeoFilter
 }
 
 type ConfigConnectionEdges {
@@ -358,6 +394,22 @@ input ConfigStyleMutation {
   nomDomaine: String
 }
 
+input ConfigTextesMutation {
+  heroCta: String
+  aboutTitre: String
+  menuTitre: String
+  galerieSousTitre: String
+  horairesCta: String
+  avisTitre: String
+  mapTitre: String
+}
+
+input ConfigSeoMutation {
+  titre: String
+  description: String
+  ogImage: String
+}
+
 input ConfigMutation {
   etablissement: ConfigEtablissementMutation
   contact: ConfigContactMutation
@@ -366,6 +418,8 @@ input ConfigMutation {
   avis: [ConfigAvisMutation]
   images: ConfigImagesMutation
   style: ConfigStyleMutation
+  textes: ConfigTextesMutation
+  seo: ConfigSeoMutation
 }
 
 schema {
