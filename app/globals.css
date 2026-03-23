@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts import ────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap');
+
+/* ── CSS Variables ──────────────────────────────────────────────── */
+:root {
+  --cream: #F6F0E4;
+  --cream2: #EDE3D0;
+  --warm: #D9C9AE;
+  --terra: #B5603E;
+  --terra2: #8C4228;
+  --wood: #3D2314;
+  --ink: #1A120A;
+  --muted: #8A7460;
+  --border: #DDD0B8;
+  --white: #FDFAF4;
+}
+
+/* ── Base ───────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scroll Reveal ──────────────────────────────────────────────── */
+.r {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.r.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+
+/* ── Button fill effect ─────────────────────────────────────────── */
+.btn-fill {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--terra2);
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+.btn-fill:hover::before {
+  transform: translateX(0);
+}
+
+/* ── Menu card left bar ─────────────────────────────────────────── */
+.menu-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--terra);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+.menu-card:hover::before {
+  transform: scaleY(1);
+}
+
+/* ── Nav scroll state ───────────────────────────────────────────── */
+.nav-scrolled {
+  background: rgba(246, 240, 228, 0.92) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* ── Gallery image hover ────────────────────────────────────────── */
+.gallery-item img {
+  transition: transform 0.9s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.07);
+}
+.gallery-item .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,18,10,0.5), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
