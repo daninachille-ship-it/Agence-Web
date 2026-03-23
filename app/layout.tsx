@@ -5,6 +5,7 @@ import configData from '@/content/config.json'
 const seo = (configData as any).seo
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://agenceweb-nine.vercel.app'),
   title: seo?.titre || `${configData.etablissement.nom} — ${configData.etablissement.slogan}`,
   description: seo?.description || configData.etablissement.description1,
   openGraph: {
