@@ -36,4 +36,3 @@ next-env.d.ts
 
 # tina generated
 /tina/__generated__
-/public/admin
