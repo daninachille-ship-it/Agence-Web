@@ -97,19 +97,5 @@
     "couleurPrincipale": "#B5603E",
     "couleurSecondaire": "#3D2314",
     "nomDomaine": "maisonblend.fr"
-  },
-  "textes": {
-    "heroCta": "Voir la carte",
-    "aboutTitre": "L'art du café, chaque matin",
-    "menuTitre": "Ce que nous préparons",
-    "galerieSousTitre": "Un espace pensé pour que chaque moment soit mémorable.",
-    "horairesCta": "Réserver une table",
-    "avisTitre": "Ils nous font confiance",
-    "mapTitre": "Venez nous rendre visite"
-  },
-  "seo": {
-    "titre": "Maison Blend — L'art du café, chaque matin.",
-    "description": "Maison Blend, café & brunch au cœur du 9e arrondissement de Paris. Sélection de cafés de spécialité, brunch du week-end et pâtisseries maison.",
-    "ogImage": "/images/hero.jpg"
   }
 }
