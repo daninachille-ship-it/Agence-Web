@@ -1,0 +1,65 @@
+fragment ConfigParts on Config {
+  __typename
+  etablissement {
+    __typename
+    nom
+    slogan
+    description1
+    description2
+    annee
+    localisation
+    noteGoogle
+    nombreAvis
+    anneesExistence
+  }
+  contact {
+    __typename
+    adresse
+    telephone
+    email
+    instagram
+    facebook
+    lienReservation
+    lienGoogleMaps
+    metro
+    parking
+  }
+  horaires {
+    __typename
+    jour
+    ouvert
+    ouverture
+    fermeture
+  }
+  menu {
+    __typename
+    categorie
+    note
+    items {
+      __typename
+      nom
+      description
+      prix
+    }
+  }
+  avis {
+    __typename
+    note
+    texte
+    auteur
+    date
+  }
+  images {
+    __typename
+    hero
+    aboutPrincipale
+    aboutSecondaire
+    galerie
+  }
+  style {
+    __typename
+    couleurPrincipale
+    couleurSecondaire
+    nomDomaine
+  }
+}
