@@ -589,22 +589,6 @@ export const ConfigPartsFragmentDoc = gql`
     couleurSecondaire
     nomDomaine
   }
-  textes {
-    __typename
-    heroCta
-    aboutTitre
-    menuTitre
-    galerieSousTitre
-    horairesCta
-    avisTitre
-    mapTitre
-  }
-  seo {
-    __typename
-    titre
-    description
-    ogImage
-  }
 }
     `;
 export const ConfigDocument = gql`
