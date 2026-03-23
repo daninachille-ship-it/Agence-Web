@@ -34,15 +34,16 @@ export default function About({
               alt="Intérieur du café"
               className="w-full h-full object-cover"
             />
-            {/* Vertical year tag */}
-            <div className="absolute top-8 -left-4 flex items-center">
-              <div className="bg-terra px-3 py-6 flex items-center justify-center"
-                style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
-              >
-                <span className="font-jost text-xs tracking-[0.3em] text-[#FDFAF4] uppercase">
-                  Depuis {annee}
-                </span>
-              </div>
+          </div>
+
+          {/* Vertical year tag — outside overflow-hidden to avoid clipping */}
+          <div className="absolute top-8 -left-4 flex items-center">
+            <div className="bg-terra px-3 py-6 flex items-center justify-center"
+              style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
+            >
+              <span className="font-jost text-xs tracking-[0.3em] text-[#FDFAF4] uppercase">
+                Depuis {annee}
+              </span>
             </div>
           </div>
 
