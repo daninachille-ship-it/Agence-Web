@@ -211,11 +211,7 @@
     "aboutPrincipale": "/images/IMG_1135.jpeg",
     "aboutSecondaire": "/images/IMG_1137.jpeg",
     "galerie": [
-      "/images/gallery-1.jpg",
-      "/images/gallery-2.jpg",
-      "/images/gallery-3.jpg",
-      "/images/gallery-4.jpg",
-      "/images/gallery-5.jpg"
+      "https://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1139.jpeg"
     ]
   },
   "style": {
