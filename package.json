@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
-    "build": "[ -n \"$NEXT_PUBLIC_TINA_CLIENT_ID\" ] && tinacms build && next build || next build",
+    "build": "[ -n \"$NEXT_PUBLIC_TINA_CLIENT_ID\" ] && (tinacms build; next build) || next build",
     "start": "next start",
     "lint": "next lint"
   },
