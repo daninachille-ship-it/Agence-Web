@@ -1,6 +1,5 @@
 {
   "etablissement": {
-    "type": "coffee_shop",
     "nom": "Maison Blend",
     "slogan": "L'art du café, chaque matin.",
     "description1": "Maison Blend est née d'une conviction simple : le café mérite la même attention qu'un grand vin. Nous sélectionnons nos grains directement auprès de torréfacteurs indépendants, et notre cuisine évolue au fil des saisons.",
@@ -23,66 +22,192 @@
     "parking": "Parking Martyrs à 100m"
   },
   "horaires": [
-    { "jour": "Lundi",    "ouvert": true,  "ouverture": "08:00", "fermeture": "19:00" },
-    { "jour": "Mardi",    "ouvert": true,  "ouverture": "08:00", "fermeture": "19:00" },
-    { "jour": "Mercredi", "ouvert": true,  "ouverture": "08:00", "fermeture": "19:00" },
-    { "jour": "Jeudi",    "ouvert": true,  "ouverture": "08:00", "fermeture": "19:00" },
-    { "jour": "Vendredi", "ouvert": true,  "ouverture": "08:00", "fermeture": "20:00" },
-    { "jour": "Samedi",   "ouvert": true,  "ouverture": "09:00", "fermeture": "20:00" },
-    { "jour": "Dimanche", "ouvert": true,  "ouverture": "09:30", "fermeture": "18:00" }
+    {
+      "jour": "Lundi",
+      "ouvert": true,
+      "ouverture": "08:00",
+      "fermeture": "19:00"
+    },
+    {
+      "jour": "Mardi",
+      "ouvert": true,
+      "ouverture": "08:00",
+      "fermeture": "19:00"
+    },
+    {
+      "jour": "Mercredi",
+      "ouvert": true,
+      "ouverture": "08:00",
+      "fermeture": "19:00"
+    },
+    {
+      "jour": "Jeudi",
+      "ouvert": true,
+      "ouverture": "08:00",
+      "fermeture": "19:00"
+    },
+    {
+      "jour": "Vendredi",
+      "ouvert": true,
+      "ouverture": "08:00",
+      "fermeture": "20:00"
+    },
+    {
+      "jour": "Samedi",
+      "ouvert": true,
+      "ouverture": "09:00",
+      "fermeture": "20:00"
+    },
+    {
+      "jour": "Dimanche",
+      "ouvert": true,
+      "ouverture": "09:30",
+      "fermeture": "18:00"
+    }
   ],
   "menu": [
     {
       "categorie": "Cafés",
       "note": "Tous nos cafés sont disponibles en décaféiné sur demande. Alternatives végétales : avoine, soja, amande.",
       "items": [
-        { "nom": "Espresso",       "description": "Simple ou double · grains éthiopiens Yirgacheffe", "prix": "2,50 €" },
-        { "nom": "Flat White",     "description": "Double ristretto · lait texturé soyeux",           "prix": "4,50 €" },
-        { "nom": "Cappuccino",     "description": "Classique · mousse onctueuse maison",               "prix": "4,00 €" },
-        { "nom": "Latte",          "description": "Tout en douceur · lait d'avoine disponible",        "prix": "4,50 €" },
-        { "nom": "Cold Brew",      "description": "Infusion 18h · servi sur glace pilée",              "prix": "5,50 €" },
-        { "nom": "Café filtre V60","description": "Sélection du barista · origine unique",             "prix": "3,50 €" }
+        {
+          "nom": "Espresso",
+          "description": "Simple ou double · grains éthiopiens Yirgacheffe",
+          "prix": "2,50 €"
+        },
+        {
+          "nom": "Flat White",
+          "description": "Double ristretto · lait texturé soyeux",
+          "prix": "4,50 €"
+        },
+        {
+          "nom": "Cappuccino",
+          "description": "Classique · mousse onctueuse maison",
+          "prix": "4,00 €"
+        },
+        {
+          "nom": "Latte",
+          "description": "Tout en douceur · lait d'avoine disponible",
+          "prix": "4,50 €"
+        },
+        {
+          "nom": "Cold Brew",
+          "description": "Infusion 18h · servi sur glace pilée",
+          "prix": "5,50 €"
+        },
+        {
+          "nom": "Café filtre V60",
+          "description": "Sélection du barista · origine unique",
+          "prix": "3,50 €"
+        }
       ]
     },
     {
       "categorie": "Brunch",
       "note": "Brunch servi le week-end de 9h30 à 15h. Réservation conseillée pour les groupes.",
       "items": [
-        { "nom": "Avocado Toast",    "description": "Pain sourdough · avocat · œuf poché · graines",    "prix": "13,00 €" },
-        { "nom": "Pancakes maison",  "description": "Sirop d'érable · fruits rouges · beurre noisette", "prix": "11,00 €" },
-        { "nom": "Œufs Bénédictine","description": "Sauce hollandaise · jambon fumé · muffin anglais",  "prix": "15,00 €" },
-        { "nom": "Bowl Granola",     "description": "Yaourt grec · miel du Vexin · fruits de saison",   "prix": "9,00 €" },
-        { "nom": "Plat du marché",   "description": "Composition selon arrivage · demandez-nous",       "prix": "16,00 €" }
+        {
+          "nom": "Avocado Toast",
+          "description": "Pain sourdough · avocat · œuf poché · graines",
+          "prix": "13,00 €"
+        },
+        {
+          "nom": "Pancakes maison",
+          "description": "Sirop d'érable · fruits rouges · beurre noisette",
+          "prix": "11,00 €"
+        },
+        {
+          "nom": "Œufs Bénédictine",
+          "description": "Sauce hollandaise · jambon fumé · muffin anglais",
+          "prix": "15,00 €"
+        },
+        {
+          "nom": "Bowl Granola",
+          "description": "Yaourt grec · miel du Vexin · fruits de saison",
+          "prix": "9,00 €"
+        },
+        {
+          "nom": "Plat du marché",
+          "description": "Composition selon arrivage · demandez-nous",
+          "prix": "16,00 €"
+        }
       ]
     },
     {
       "categorie": "Boissons",
       "note": "Sélection de thés et infusions biologiques disponible sur demande.",
       "items": [
-        { "nom": "Jus pressé maison", "description": "Orange · carotte-gingembre · pomme-menthe", "prix": "6,00 €" },
-        { "nom": "Matcha Latte",      "description": "Matcha cérémonial · lait d'avoine",         "prix": "5,50 €" },
-        { "nom": "Chocolat chaud",    "description": "Valrhona 70% · chantilly maison",            "prix": "5,00 €" },
-        { "nom": "Kombucha",          "description": "Brassé localement · saveurs du moment",      "prix": "6,00 €" }
+        {
+          "nom": "Jus pressé maison",
+          "description": "Orange · carotte-gingembre · pomme-menthe",
+          "prix": "6,00 €"
+        },
+        {
+          "nom": "Matcha Latte",
+          "description": "Matcha cérémonial · lait d'avoine",
+          "prix": "5,50 €"
+        },
+        {
+          "nom": "Chocolat chaud",
+          "description": "Valrhona 70% · chantilly maison",
+          "prix": "5,00 €"
+        },
+        {
+          "nom": "Kombucha",
+          "description": "Brassé localement · saveurs du moment",
+          "prix": "6,00 €"
+        }
       ]
     },
     {
       "categorie": "Douceurs",
       "note": "Pâtisseries réalisées chaque matin. Disponibilités limitées.",
       "items": [
-        { "nom": "Banana Bread",    "description": "Recette maison · noix · sans lactose",             "prix": "4,00 €" },
-        { "nom": "Croissant beurre","description": "Livraison quotidienne · boulangerie du quartier",  "prix": "2,50 €" },
-        { "nom": "Cookie New York", "description": "Chocolat noir Valrhona · fleur de sel",            "prix": "3,50 €" },
-        { "nom": "Muffin du jour",  "description": "Recette qui change chaque matin",                  "prix": "3,00 €" }
+        {
+          "nom": "Banana Bread",
+          "description": "Recette maison · noix · sans lactose",
+          "prix": "4,00 €"
+        },
+        {
+          "nom": "Croissant beurre",
+          "description": "Livraison quotidienne · boulangerie du quartier",
+          "prix": "2,50 €"
+        },
+        {
+          "nom": "Cookie New York",
+          "description": "Chocolat noir Valrhona · fleur de sel",
+          "prix": "3,50 €"
+        },
+        {
+          "nom": "Muffin du jour",
+          "description": "Recette qui change chaque matin",
+          "prix": "3,00 €"
+        }
       ]
     }
   ],
   "avis": [
-    { "note": 5, "texte": "Le meilleur flat white du 9e, sans hésiter. L'ambiance est parfaite pour travailler ou simplement prendre le temps.", "auteur": "Sophie M.", "date": "Il y a 2 semaines" },
-    { "note": 5, "texte": "Le brunch du dimanche est un rituel. Les œufs bénédictine sont parfaits et le service toujours attentionné.", "auteur": "Thomas B.", "date": "Il y a 1 mois" },
-    { "note": 5, "texte": "Un vrai coup de cœur. La sélection de cafés est remarquable et l'atmosphère chaleureuse donne envie de rester.", "auteur": "Léa K.", "date": "Il y a 3 semaines" }
+    {
+      "note": 5,
+      "texte": "Le meilleur flat white du 9e, sans hésiter. L'ambiance est parfaite pour travailler ou simplement prendre le temps.",
+      "auteur": "Sophie M.",
+      "date": "Il y a 2 semaines"
+    },
+    {
+      "note": 5,
+      "texte": "Le brunch du dimanche est un rituel. Les œufs bénédictine sont parfaits et le service toujours attentionné.",
+      "auteur": "Thomas B.",
+      "date": "Il y a 1 mois"
+    },
+    {
+      "note": 5,
+      "texte": "Un vrai coup de cœur. La sélection de cafés est remarquable et l'atmosphère chaleureuse donne envie de rester.",
+      "auteur": "Léa K.",
+      "date": "Il y a 3 semaines"
+    }
   ],
   "images": {
-    "hero": "/images/hero.jpg",
+    "hero": "/images/IMG_1134.jpeg",
     "aboutPrincipale": "/images/about-main.jpg",
     "aboutSecondaire": "/images/about-float.jpg",
     "galerie": [
