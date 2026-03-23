@@ -353,7 +353,7 @@ export type ConfigImagesFilter = {
   hero?: InputMaybe<ImageFilter>;
   aboutPrincipale?: InputMaybe<ImageFilter>;
   aboutSecondaire?: InputMaybe<ImageFilter>;
-  galerie?: InputMaybe<StringFilter>;
+  galerie?: InputMaybe<ImageFilter>;
 };
 
 export type ConfigStyleFilter = {
@@ -776,7 +776,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "https://content.tinajs.io/1.6/content/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/github/main",
+        url: "https://content.tinajs.io/1.6/content/dummy/github/main",
         queries,
       })
     )

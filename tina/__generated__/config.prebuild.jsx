@@ -157,13 +157,13 @@ var config_default = defineConfig({
             name: "textes",
             label: "Titres & Boutons des sections",
             fields: [
-              { type: "string", name: "heroCta", label: "Hero — Texte du bouton (ex: Voir la carte)" },
-              { type: "string", name: "aboutTitre", label: "Notre histoire — Titre principal" },
-              { type: "string", name: "menuTitre", label: "La carte — Titre principal" },
-              { type: "string", name: "galerieSousTitre", label: "Galerie — Sous-titre" },
-              { type: "string", name: "horairesCta", label: "Horaires — Texte du bouton de réservation" },
-              { type: "string", name: "avisTitre", label: "Avis clients — Titre principal" },
-              { type: "string", name: "mapTitre", label: "Localisation — Titre principal" }
+              { type: "string", name: "heroCta", label: "Hero \u2014 Texte du bouton (ex: Voir la carte)" },
+              { type: "string", name: "aboutTitre", label: "Notre histoire \u2014 Titre principal" },
+              { type: "string", name: "menuTitre", label: "La carte \u2014 Titre principal" },
+              { type: "string", name: "galerieSousTitre", label: "Galerie \u2014 Sous-titre" },
+              { type: "string", name: "horairesCta", label: "Horaires \u2014 Texte du bouton de r\xE9servation" },
+              { type: "string", name: "avisTitre", label: "Avis clients \u2014 Titre principal" },
+              { type: "string", name: "mapTitre", label: "Localisation \u2014 Titre principal" }
             ]
           },
           // ─── SEO ─────────────────────────────────────────────────────────
@@ -172,7 +172,7 @@ var config_default = defineConfig({
             name: "seo",
             label: "SEO & Partage",
             fields: [
-              { type: "string", name: "titre", label: 'Titre de la page (balise <title>)' },
+              { type: "string", name: "titre", label: "Titre de la page (balise <title>)" },
               { type: "string", name: "description", label: "M\xE9ta description (160 car. max)", ui: { component: "textarea" } },
               { type: "image", name: "ogImage", label: "Image de partage r\xE9seaux sociaux (Open Graph)" }
             ]
