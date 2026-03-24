@@ -81,7 +81,7 @@ export default function Menu({ menu, menuTitre }: MenuProps) {
 
             {/* Category note */}
             {current.note && (
-              <div className="r bg-wood px-6 py-4 mt-2">
+              <div className="bg-wood px-6 py-4 mt-2">
                 <p className="font-jost font-light text-cream text-sm leading-relaxed">
                   <span className="text-terra mr-2">✦</span>
                   {current.note}
