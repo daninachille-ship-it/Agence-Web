@@ -8,6 +8,15 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      // Serve TinaCMS admin SPA for all /admin/* routes
+      {
+        source: '/admin/:path*',
+        destination: '/admin/index.html',
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
