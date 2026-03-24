@@ -31,17 +31,6 @@ fragment ConfigParts on Config {
     ouverture
     fermeture
   }
-  menu {
-    __typename
-    categorie
-    note
-    items {
-      __typename
-      nom
-      description
-      prix
-    }
-  }
   avis {
     __typename
     note
@@ -62,20 +51,16 @@ fragment ConfigParts on Config {
     couleurSecondaire
     nomDomaine
   }
-  textes {
+}
+
+fragment MenuCategorieParts on MenuCategorie {
+  __typename
+  categorie
+  note
+  items {
     __typename
-    heroCta
-    aboutTitre
-    menuTitre
-    galerieSousTitre
-    horairesCta
-    avisTitre
-    mapTitre
-  }
-  seo {
-    __typename
-    titre
+    nom
     description
-    ogImage
+    prix
   }
 }

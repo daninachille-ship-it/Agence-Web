@@ -12,6 +12,12 @@ import MapSection from '@/components/MapSection'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
 import staticConfig from '@/content/config.json'
+import cafes from '@/content/menu/cafes.json'
+import brunch from '@/content/menu/brunch.json'
+import boissons from '@/content/menu/boissons.json'
+import douceurs from '@/content/menu/douceurs.json'
+
+const MENU_DATA = [cafes, brunch, boissons, douceurs] as any[]
 
 interface HomeClientProps {
   data: any
@@ -24,7 +30,7 @@ interface HomeClientProps {
 // staticConfig is the source of truth for all data
 function HomeContent({ tina }: { config?: any; tina?: any }) {
   const { etablissement, contact, horaires, avis, images, style } = staticConfig as any
-  const menu = staticConfig.menu as any[]
+  const menu = MENU_DATA
 
   return (
     <>

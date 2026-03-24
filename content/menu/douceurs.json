@@ -1,0 +1,10 @@
+{
+  "categorie": "Douceurs",
+  "note": "Pâtisseries réalisées chaque matin. Disponibilités limitées.",
+  "items": [
+    { "nom": "Banana Bread", "description": "Recette maison · noix · sans lactose", "prix": "4,00 €" },
+    { "nom": "Croissant beurre", "description": "Livraison quotidienne · boulangerie du quartier", "prix": "2,50 €" },
+    { "nom": "Cookie New York", "description": "Chocolat noir Valrhona · fleur de sel", "prix": "3,50 €" },
+    { "nom": "Muffin du jour", "description": "Recette qui change chaque matin", "prix": "3,00 €" }
+  ]
+}
