@@ -20,11 +20,10 @@ interface HomeClientProps {
 }
 
 // Renders all sections from a config object
-function HomeContent({ config, tina }: { config: any; tina?: any }) {
-  const { etablissement, contact, horaires, avis, images, style } = config
-
-  // TinaCMS Cloud cannot reliably index nested list-in-list fields.
-  // Always use static JSON for menu items — changes via admin rebuild anyway.
+// config comes from useTina (may be TinaCMS Cloud data in edit mode — unreliable)
+// staticConfig is the source of truth for all data
+function HomeContent({ tina }: { config?: any; tina?: any }) {
+  const { etablissement, contact, horaires, avis, images, style } = staticConfig as any
   const menu = staticConfig.menu as any[]
 
   return (
