@@ -8,12 +8,12 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
+  async redirects() {
     return [
-      // Serve TinaCMS admin SPA for all /admin/* routes
       {
-        source: '/admin/:path*',
+        source: '/admin',
         destination: '/admin/index.html',
+        permanent: false,
       },
     ]
   },
