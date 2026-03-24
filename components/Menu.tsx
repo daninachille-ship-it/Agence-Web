@@ -62,7 +62,7 @@ export default function Menu({ menu, menuTitre }: MenuProps) {
               {(current.items ?? []).filter(Boolean).map((item, i) => (
                 <div
                   key={item.nom}
-                  className={`menu-card relative bg-[#FDFAF4] p-6 flex justify-between items-start gap-4 overflow-hidden r d${Math.min(i + 1, 4)}`}
+                  className="menu-card relative bg-[#FDFAF4] p-6 flex justify-between items-start gap-4 overflow-hidden"
                 >
                   <div className="flex-1">
                     <h3 className="font-playfair text-lg font-medium text-ink mb-1">
