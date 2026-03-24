@@ -11,6 +11,7 @@ import Reviews from '@/components/Reviews'
 import MapSection from '@/components/MapSection'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
+import staticConfig from '@/content/config.json'
 
 interface HomeClientProps {
   data: any
@@ -20,7 +21,15 @@ interface HomeClientProps {
 
 // Renders all sections from a config object
 function HomeContent({ config, tina }: { config: any; tina?: any }) {
-  const { etablissement, contact, horaires, menu, avis, images, style } = config
+  const { etablissement, contact, horaires, avis, images, style } = config
+
+  // TinaCMS Cloud returns null for nested lists (list-in-list) — fallback to static JSON
+  const menu = (config.menu ?? staticConfig.menu).map((cat: any, i: number) => ({
+    ...cat,
+    items: (cat?.items ?? []).filter(Boolean).length > 0
+      ? cat.items
+      : (staticConfig.menu[i]?.items ?? []),
+  }))
 
   return (
     <>
