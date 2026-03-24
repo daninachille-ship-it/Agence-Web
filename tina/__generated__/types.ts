@@ -84,6 +84,8 @@ export type Query = {
   document: DocumentNode;
   config: Config;
   configConnection: ConfigConnection;
+  menuCategorie: MenuCategorie;
+  menuCategorieConnection: MenuCategorieConnection;
 };
 
 
@@ -122,8 +124,24 @@ export type QueryConfigConnectionArgs = {
   filter?: InputMaybe<ConfigFilter>;
 };
 
+
+export type QueryMenuCategorieArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryMenuCategorieConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<MenuCategorieFilter>;
+};
+
 export type DocumentFilter = {
   config?: InputMaybe<ConfigFilter>;
+  menuCategorie?: InputMaybe<MenuCategorieFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -163,7 +181,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Config | Folder;
+export type DocumentNode = Config | MenuCategorie | Folder;
 
 export type ConfigEtablissement = {
   __typename?: 'ConfigEtablissement';
@@ -199,20 +217,6 @@ export type ConfigHoraires = {
   fermeture?: Maybe<Scalars['String']['output']>;
 };
 
-export type ConfigMenuItems = {
-  __typename?: 'ConfigMenuItems';
-  nom?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  prix?: Maybe<Scalars['String']['output']>;
-};
-
-export type ConfigMenu = {
-  __typename?: 'ConfigMenu';
-  categorie?: Maybe<Scalars['String']['output']>;
-  note?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<ConfigMenuItems>>>;
-};
-
 export type ConfigAvis = {
   __typename?: 'ConfigAvis';
   note?: Maybe<Scalars['Float']['output']>;
@@ -241,7 +245,6 @@ export type Config = Node & Document & {
   etablissement?: Maybe<ConfigEtablissement>;
   contact?: Maybe<ConfigContact>;
   horaires?: Maybe<Array<Maybe<ConfigHoraires>>>;
-  menu?: Maybe<Array<Maybe<ConfigMenu>>>;
   avis?: Maybe<Array<Maybe<ConfigAvis>>>;
   images?: Maybe<ConfigImages>;
   style?: Maybe<ConfigStyle>;
@@ -293,18 +296,6 @@ export type ConfigHorairesFilter = {
   fermeture?: InputMaybe<StringFilter>;
 };
 
-export type ConfigMenuItemsFilter = {
-  nom?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  prix?: InputMaybe<StringFilter>;
-};
-
-export type ConfigMenuFilter = {
-  categorie?: InputMaybe<StringFilter>;
-  note?: InputMaybe<StringFilter>;
-  items?: InputMaybe<ConfigMenuItemsFilter>;
-};
-
 export type NumberFilter = {
   lt?: InputMaybe<Scalars['Float']['input']>;
   lte?: InputMaybe<Scalars['Float']['input']>;
@@ -346,7 +337,6 @@ export type ConfigFilter = {
   etablissement?: InputMaybe<ConfigEtablissementFilter>;
   contact?: InputMaybe<ConfigContactFilter>;
   horaires?: InputMaybe<ConfigHorairesFilter>;
-  menu?: InputMaybe<ConfigMenuFilter>;
   avis?: InputMaybe<ConfigAvisFilter>;
   images?: InputMaybe<ConfigImagesFilter>;
   style?: InputMaybe<ConfigStyleFilter>;
@@ -365,6 +355,48 @@ export type ConfigConnection = Connection & {
   edges?: Maybe<Array<Maybe<ConfigConnectionEdges>>>;
 };
 
+export type MenuCategorieItems = {
+  __typename?: 'MenuCategorieItems';
+  nom?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  prix?: Maybe<Scalars['String']['output']>;
+};
+
+export type MenuCategorie = Node & Document & {
+  __typename?: 'MenuCategorie';
+  categorie?: Maybe<Scalars['String']['output']>;
+  note?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<MenuCategorieItems>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type MenuCategorieItemsFilter = {
+  nom?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  prix?: InputMaybe<StringFilter>;
+};
+
+export type MenuCategorieFilter = {
+  categorie?: InputMaybe<StringFilter>;
+  note?: InputMaybe<StringFilter>;
+  items?: InputMaybe<MenuCategorieItemsFilter>;
+};
+
+export type MenuCategorieConnectionEdges = {
+  __typename?: 'MenuCategorieConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<MenuCategorie>;
+};
+
+export type MenuCategorieConnection = Connection & {
+  __typename?: 'MenuCategorieConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<MenuCategorieConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -374,6 +406,8 @@ export type Mutation = {
   createFolder: DocumentNode;
   updateConfig: Config;
   createConfig: Config;
+  updateMenuCategorie: MenuCategorie;
+  createMenuCategorie: MenuCategorie;
 };
 
 
@@ -421,13 +455,27 @@ export type MutationCreateConfigArgs = {
   params: ConfigMutation;
 };
 
+
+export type MutationUpdateMenuCategorieArgs = {
+  relativePath: Scalars['String']['input'];
+  params: MenuCategorieMutation;
+};
+
+
+export type MutationCreateMenuCategorieArgs = {
+  relativePath: Scalars['String']['input'];
+  params: MenuCategorieMutation;
+};
+
 export type DocumentUpdateMutation = {
   config?: InputMaybe<ConfigMutation>;
+  menuCategorie?: InputMaybe<MenuCategorieMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
   config?: InputMaybe<ConfigMutation>;
+  menuCategorie?: InputMaybe<MenuCategorieMutation>;
 };
 
 export type ConfigEtablissementMutation = {
@@ -461,18 +509,6 @@ export type ConfigHorairesMutation = {
   fermeture?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ConfigMenuItemsMutation = {
-  nom?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  prix?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ConfigMenuMutation = {
-  categorie?: InputMaybe<Scalars['String']['input']>;
-  note?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<ConfigMenuItemsMutation>>>;
-};
-
 export type ConfigAvisMutation = {
   note?: InputMaybe<Scalars['Float']['input']>;
   texte?: InputMaybe<Scalars['String']['input']>;
@@ -497,20 +533,33 @@ export type ConfigMutation = {
   etablissement?: InputMaybe<ConfigEtablissementMutation>;
   contact?: InputMaybe<ConfigContactMutation>;
   horaires?: InputMaybe<Array<InputMaybe<ConfigHorairesMutation>>>;
-  menu?: InputMaybe<Array<InputMaybe<ConfigMenuMutation>>>;
   avis?: InputMaybe<Array<InputMaybe<ConfigAvisMutation>>>;
   images?: InputMaybe<ConfigImagesMutation>;
   style?: InputMaybe<ConfigStyleMutation>;
 };
 
-export type ConfigPartsFragment = { __typename: 'Config', etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null };
+export type MenuCategorieItemsMutation = {
+  nom?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  prix?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type MenuCategorieMutation = {
+  categorie?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<InputMaybe<MenuCategorieItemsMutation>>>;
+};
+
+export type ConfigPartsFragment = { __typename: 'Config', etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null };
+
+export type MenuCategoriePartsFragment = { __typename: 'MenuCategorie', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'MenuCategorieItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null };
 
 export type ConfigQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type ConfigQuery = { __typename?: 'Query', config: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null } };
+export type ConfigQuery = { __typename?: 'Query', config: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null } };
 
 export type ConfigConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -522,7 +571,26 @@ export type ConfigConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ConfigConnectionQuery = { __typename?: 'Query', configConnection: { __typename?: 'ConfigConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConfigConnectionEdges', cursor: string, node?: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, menu?: Array<{ __typename: 'ConfigMenu', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'ConfigMenuItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null } | null } | null> | null } };
+export type ConfigConnectionQuery = { __typename?: 'Query', configConnection: { __typename?: 'ConfigConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConfigConnectionEdges', cursor: string, node?: { __typename: 'Config', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null } | null } | null> | null } };
+
+export type MenuCategorieQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type MenuCategorieQuery = { __typename?: 'Query', menuCategorie: { __typename: 'MenuCategorie', id: string, categorie?: string | null, note?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, items?: Array<{ __typename: 'MenuCategorieItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } };
+
+export type MenuCategorieConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<MenuCategorieFilter>;
+}>;
+
+
+export type MenuCategorieConnectionQuery = { __typename?: 'Query', menuCategorieConnection: { __typename?: 'MenuCategorieConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'MenuCategorieConnectionEdges', cursor: string, node?: { __typename: 'MenuCategorie', id: string, categorie?: string | null, note?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, items?: Array<{ __typename: 'MenuCategorieItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null } | null } | null> | null } };
 
 export const ConfigPartsFragmentDoc = gql`
     fragment ConfigParts on Config {
@@ -558,17 +626,6 @@ export const ConfigPartsFragmentDoc = gql`
     ouverture
     fermeture
   }
-  menu {
-    __typename
-    categorie
-    note
-    items {
-      __typename
-      nom
-      description
-      prix
-    }
-  }
   avis {
     __typename
     note
@@ -588,6 +645,19 @@ export const ConfigPartsFragmentDoc = gql`
     couleurPrincipale
     couleurSecondaire
     nomDomaine
+  }
+}
+    `;
+export const MenuCategoriePartsFragmentDoc = gql`
+    fragment MenuCategorieParts on MenuCategorie {
+  __typename
+  categorie
+  note
+  items {
+    __typename
+    nom
+    description
+    prix
   }
 }
     `;
@@ -648,6 +718,63 @@ export const ConfigConnectionDocument = gql`
   }
 }
     ${ConfigPartsFragmentDoc}`;
+export const MenuCategorieDocument = gql`
+    query menuCategorie($relativePath: String!) {
+  menuCategorie(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...MenuCategorieParts
+  }
+}
+    ${MenuCategoriePartsFragmentDoc}`;
+export const MenuCategorieConnectionDocument = gql`
+    query menuCategorieConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: MenuCategorieFilter) {
+  menuCategorieConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...MenuCategorieParts
+      }
+    }
+  }
+}
+    ${MenuCategoriePartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -656,6 +783,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     configConnection(variables?: ConfigConnectionQueryVariables, options?: C): Promise<{data: ConfigConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConfigConnectionQueryVariables, query: string}> {
         return requester<{data: ConfigConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConfigConnectionQueryVariables, query: string}, ConfigConnectionQueryVariables>(ConfigConnectionDocument, variables, options);
+      },
+    menuCategorie(variables: MenuCategorieQueryVariables, options?: C): Promise<{data: MenuCategorieQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MenuCategorieQueryVariables, query: string}> {
+        return requester<{data: MenuCategorieQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MenuCategorieQueryVariables, query: string}, MenuCategorieQueryVariables>(MenuCategorieDocument, variables, options);
+      },
+    menuCategorieConnection(variables?: MenuCategorieConnectionQueryVariables, options?: C): Promise<{data: MenuCategorieConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MenuCategorieConnectionQueryVariables, query: string}> {
+        return requester<{data: MenuCategorieConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MenuCategorieConnectionQueryVariables, query: string}, MenuCategorieConnectionQueryVariables>(MenuCategorieConnectionDocument, variables, options);
       }
     };
   }

@@ -84,35 +84,6 @@ export default defineConfig({
             ],
           },
 
-          // ─── MENU ────────────────────────────────────────────────────────
-          {
-            type: 'object',
-            name: 'menu',
-            label: 'La carte',
-            list: true,
-            ui: {
-              itemProps: (item) => ({ label: item?.categorie }),
-            },
-            fields: [
-              { type: 'string', name: 'categorie', label: 'Catégorie' },
-              { type: 'string', name: 'note', label: 'Note / Information', ui: { component: 'textarea' } },
-              {
-                type: 'object',
-                name: 'items',
-                label: 'Plats & Boissons',
-                list: true,
-                ui: {
-                  itemProps: (item) => ({ label: `${item?.nom} — ${item?.prix}` }),
-                },
-                fields: [
-                  { type: 'string', name: 'nom', label: 'Nom' },
-                  { type: 'string', name: 'description', label: 'Description' },
-                  { type: 'string', name: 'prix', label: 'Prix (ex: 4,50 €)' },
-                ],
-              },
-            ],
-          },
-
           // ─── AVIS ────────────────────────────────────────────────────────
           {
             type: 'object',
@@ -157,6 +128,35 @@ export default defineConfig({
               { type: 'string', name: 'couleurPrincipale', label: 'Couleur principale (hex, ex: #B5603E)' },
               { type: 'string', name: 'couleurSecondaire', label: 'Couleur secondaire (hex, ex: #3D2314)' },
               { type: 'string', name: 'nomDomaine', label: 'Nom de domaine (ex: maisonblend.fr)' },
+            ],
+          },
+        ],
+      },
+
+      // ─── MENU (fichiers séparés par catégorie) ────────────────────────────
+      {
+        name: 'menuCategorie',
+        label: 'La carte',
+        path: 'content/menu',
+        format: 'json',
+        ui: {
+          router: () => '/',
+        },
+        fields: [
+          { type: 'string', name: 'categorie', label: 'Catégorie' },
+          { type: 'string', name: 'note', label: 'Note / Information', ui: { component: 'textarea' } },
+          {
+            type: 'object',
+            name: 'items',
+            label: 'Plats & Boissons',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: `${item?.nom} — ${item?.prix}` }),
+            },
+            fields: [
+              { type: 'string', name: 'nom', label: 'Nom' },
+              { type: 'string', name: 'description', label: 'Description' },
+              { type: 'string', name: 'prix', label: 'Prix (ex: 4,50 €)' },
             ],
           },
         ],

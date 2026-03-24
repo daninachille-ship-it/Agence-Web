@@ -1,0 +1,10 @@
+{
+  "categorie": "Boissons",
+  "note": "Sélection de thés et infusions biologiques disponible sur demande.",
+  "items": [
+    { "nom": "Jus pressé maison", "description": "Orange · carotte-gingembre · pomme-menthe", "prix": "6,00 €" },
+    { "nom": "Matcha Latte", "description": "Matcha cérémonial · lait d'avoine", "prix": "5,50 €" },
+    { "nom": "Chocolat chaud", "description": "Valrhona 70% · chantilly maison", "prix": "5,00 €" },
+    { "nom": "Kombucha", "description": "Brassé localement · saveurs du moment", "prix": "6,00 €" }
+  ]
+}

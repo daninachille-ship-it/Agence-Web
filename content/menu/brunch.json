@@ -1,0 +1,11 @@
+{
+  "categorie": "Brunch",
+  "note": "Brunch servi le week-end de 9h30 à 15h. Réservation conseillée pour les groupes.",
+  "items": [
+    { "nom": "Avocado Toast", "description": "Pain sourdough · avocat · œuf poché · graines", "prix": "13,00 €" },
+    { "nom": "Pancakes maison", "description": "Sirop d'érable · fruits rouges · beurre noisette", "prix": "11,00 €" },
+    { "nom": "Œufs Bénédictine", "description": "Sauce hollandaise · jambon fumé · muffin anglais", "prix": "15,00 €" },
+    { "nom": "Bowl Granola", "description": "Yaourt grec · miel du Vexin · fruits de saison", "prix": "9,00 €" },
+    { "nom": "Plat du marché", "description": "Composition selon arrivage · demandez-nous", "prix": "16,00 €" }
+  ]
+}

@@ -79,34 +79,6 @@ var config_default = defineConfig({
               { type: "string", name: "fermeture", label: "Heure de fermeture (HH:MM)" }
             ]
           },
-          // ─── MENU ────────────────────────────────────────────────────────
-          {
-            type: "object",
-            name: "menu",
-            label: "La carte",
-            list: true,
-            ui: {
-              itemProps: (item) => ({ label: item?.categorie })
-            },
-            fields: [
-              { type: "string", name: "categorie", label: "Cat\xE9gorie" },
-              { type: "string", name: "note", label: "Note / Information", ui: { component: "textarea" } },
-              {
-                type: "object",
-                name: "items",
-                label: "Plats & Boissons",
-                list: true,
-                ui: {
-                  itemProps: (item) => ({ label: `${item?.nom} \u2014 ${item?.prix}` })
-                },
-                fields: [
-                  { type: "string", name: "nom", label: "Nom" },
-                  { type: "string", name: "description", label: "Description" },
-                  { type: "string", name: "prix", label: "Prix (ex: 4,50 \u20AC)" }
-                ]
-              }
-            ]
-          },
           // ─── AVIS ────────────────────────────────────────────────────────
           {
             type: "object",
@@ -150,31 +122,33 @@ var config_default = defineConfig({
               { type: "string", name: "couleurSecondaire", label: "Couleur secondaire (hex, ex: #3D2314)" },
               { type: "string", name: "nomDomaine", label: "Nom de domaine (ex: maisonblend.fr)" }
             ]
-          },
-          // ─── TEXTES & TITRES ─────────────────────────────────────────────
+          }
+        ]
+      },
+      // ─── MENU (fichiers séparés par catégorie) ────────────────────────────
+      {
+        name: "menuCategorie",
+        label: "La carte",
+        path: "content/menu",
+        format: "json",
+        ui: {
+          router: () => "/"
+        },
+        fields: [
+          { type: "string", name: "categorie", label: "Cat\xE9gorie" },
+          { type: "string", name: "note", label: "Note / Information", ui: { component: "textarea" } },
           {
             type: "object",
-            name: "textes",
-            label: "Titres & Boutons des sections",
+            name: "items",
+            label: "Plats & Boissons",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: `${item?.nom} \u2014 ${item?.prix}` })
+            },
             fields: [
-              { type: "string", name: "heroCta", label: "Hero \u2014 Texte du bouton (ex: Voir la carte)" },
-              { type: "string", name: "aboutTitre", label: "Notre histoire \u2014 Titre principal" },
-              { type: "string", name: "menuTitre", label: "La carte \u2014 Titre principal" },
-              { type: "string", name: "galerieSousTitre", label: "Galerie \u2014 Sous-titre" },
-              { type: "string", name: "horairesCta", label: "Horaires \u2014 Texte du bouton de r\xE9servation" },
-              { type: "string", name: "avisTitre", label: "Avis clients \u2014 Titre principal" },
-              { type: "string", name: "mapTitre", label: "Localisation \u2014 Titre principal" }
-            ]
-          },
-          // ─── SEO ─────────────────────────────────────────────────────────
-          {
-            type: "object",
-            name: "seo",
-            label: "SEO & Partage",
-            fields: [
-              { type: "string", name: "titre", label: "Titre de la page (balise <title>)" },
-              { type: "string", name: "description", label: "M\xE9ta description (160 car. max)", ui: { component: "textarea" } },
-              { type: "image", name: "ogImage", label: "Image de partage r\xE9seaux sociaux (Open Graph)" }
+              { type: "string", name: "nom", label: "Nom" },
+              { type: "string", name: "description", label: "Description" },
+              { type: "string", name: "prix", label: "Prix (ex: 4,50 \u20AC)" }
             ]
           }
         ]

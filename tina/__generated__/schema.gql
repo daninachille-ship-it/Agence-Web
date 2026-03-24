@@ -56,10 +56,13 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   config(relativePath: String): Config!
   configConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ConfigFilter): ConfigConnection!
+  menuCategorie(relativePath: String): MenuCategorie!
+  menuCategorieConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: MenuCategorieFilter): MenuCategorieConnection!
 }
 
 input DocumentFilter {
   config: ConfigFilter
+  menuCategorie: MenuCategorieFilter
 }
 
 type DocumentConnectionEdges {
@@ -85,7 +88,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Config | Folder
+union DocumentNode = Config | MenuCategorie | Folder
 
 type ConfigEtablissement {
   nom: String
@@ -118,18 +121,6 @@ type ConfigHoraires {
   fermeture: String
 }
 
-type ConfigMenuItems {
-  nom: String
-  description: String
-  prix: String
-}
-
-type ConfigMenu {
-  categorie: String
-  note: String
-  items: [ConfigMenuItems]
-}
-
 type ConfigAvis {
   note: Float
   texte: String
@@ -150,32 +141,13 @@ type ConfigStyle {
   nomDomaine: String
 }
 
-type ConfigTextes {
-  heroCta: String
-  aboutTitre: String
-  menuTitre: String
-  galerieSousTitre: String
-  horairesCta: String
-  avisTitre: String
-  mapTitre: String
-}
-
-type ConfigSeo {
-  titre: String
-  description: String
-  ogImage: String
-}
-
 type Config implements Node & Document {
   etablissement: ConfigEtablissement
   contact: ConfigContact
   horaires: [ConfigHoraires]
-  menu: [ConfigMenu]
   avis: [ConfigAvis]
   images: ConfigImages
   style: ConfigStyle
-  textes: ConfigTextes
-  seo: ConfigSeo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -224,18 +196,6 @@ input ConfigHorairesFilter {
   fermeture: StringFilter
 }
 
-input ConfigMenuItemsFilter {
-  nom: StringFilter
-  description: StringFilter
-  prix: StringFilter
-}
-
-input ConfigMenuFilter {
-  categorie: StringFilter
-  note: StringFilter
-  items: ConfigMenuItemsFilter
-}
-
 input NumberFilter {
   lt: Float
   lte: Float
@@ -273,32 +233,13 @@ input ConfigStyleFilter {
   nomDomaine: StringFilter
 }
 
-input ConfigTextesFilter {
-  heroCta: StringFilter
-  aboutTitre: StringFilter
-  menuTitre: StringFilter
-  galerieSousTitre: StringFilter
-  horairesCta: StringFilter
-  avisTitre: StringFilter
-  mapTitre: StringFilter
-}
-
-input ConfigSeoFilter {
-  titre: StringFilter
-  description: StringFilter
-  ogImage: ImageFilter
-}
-
 input ConfigFilter {
   etablissement: ConfigEtablissementFilter
   contact: ConfigContactFilter
   horaires: ConfigHorairesFilter
-  menu: ConfigMenuFilter
   avis: ConfigAvisFilter
   images: ConfigImagesFilter
   style: ConfigStyleFilter
-  textes: ConfigTextesFilter
-  seo: ConfigSeoFilter
 }
 
 type ConfigConnectionEdges {
@@ -312,6 +253,44 @@ type ConfigConnection implements Connection {
   edges: [ConfigConnectionEdges]
 }
 
+type MenuCategorieItems {
+  nom: String
+  description: String
+  prix: String
+}
+
+type MenuCategorie implements Node & Document {
+  categorie: String
+  note: String
+  items: [MenuCategorieItems]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input MenuCategorieItemsFilter {
+  nom: StringFilter
+  description: StringFilter
+  prix: StringFilter
+}
+
+input MenuCategorieFilter {
+  categorie: StringFilter
+  note: StringFilter
+  items: MenuCategorieItemsFilter
+}
+
+type MenuCategorieConnectionEdges {
+  cursor: String!
+  node: MenuCategorie
+}
+
+type MenuCategorieConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [MenuCategorieConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -320,15 +299,19 @@ type Mutation {
   createFolder(collection: String, relativePath: String!): DocumentNode!
   updateConfig(relativePath: String!, params: ConfigMutation!): Config!
   createConfig(relativePath: String!, params: ConfigMutation!): Config!
+  updateMenuCategorie(relativePath: String!, params: MenuCategorieMutation!): MenuCategorie!
+  createMenuCategorie(relativePath: String!, params: MenuCategorieMutation!): MenuCategorie!
 }
 
 input DocumentUpdateMutation {
   config: ConfigMutation
+  menuCategorie: MenuCategorieMutation
   relativePath: String
 }
 
 input DocumentMutation {
   config: ConfigMutation
+  menuCategorie: MenuCategorieMutation
 }
 
 input ConfigEtablissementMutation {
@@ -362,18 +345,6 @@ input ConfigHorairesMutation {
   fermeture: String
 }
 
-input ConfigMenuItemsMutation {
-  nom: String
-  description: String
-  prix: String
-}
-
-input ConfigMenuMutation {
-  categorie: String
-  note: String
-  items: [ConfigMenuItemsMutation]
-}
-
 input ConfigAvisMutation {
   note: Float
   texte: String
@@ -394,32 +365,25 @@ input ConfigStyleMutation {
   nomDomaine: String
 }
 
-input ConfigTextesMutation {
-  heroCta: String
-  aboutTitre: String
-  menuTitre: String
-  galerieSousTitre: String
-  horairesCta: String
-  avisTitre: String
-  mapTitre: String
-}
-
-input ConfigSeoMutation {
-  titre: String
-  description: String
-  ogImage: String
-}
-
 input ConfigMutation {
   etablissement: ConfigEtablissementMutation
   contact: ConfigContactMutation
   horaires: [ConfigHorairesMutation]
-  menu: [ConfigMenuMutation]
   avis: [ConfigAvisMutation]
   images: ConfigImagesMutation
   style: ConfigStyleMutation
-  textes: ConfigTextesMutation
-  seo: ConfigSeoMutation
+}
+
+input MenuCategorieItemsMutation {
+  nom: String
+  description: String
+  prix: String
+}
+
+input MenuCategorieMutation {
+  categorie: String
+  note: String
+  items: [MenuCategorieItemsMutation]
 }
 
 schema {
