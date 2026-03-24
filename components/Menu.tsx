@@ -59,7 +59,7 @@ export default function Menu({ menu, menuTitre }: MenuProps) {
         {current && (
           <div key={current.categorie}>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
-              {current.items.map((item, i) => (
+              {(current.items ?? []).filter(Boolean).map((item, i) => (
                 <div
                   key={item.nom}
                   className={`menu-card relative bg-[#FDFAF4] p-6 flex justify-between items-start gap-4 overflow-hidden r d${Math.min(i + 1, 4)}`}
