@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
-    "build": "[ -n \"$NEXT_PUBLIC_TINA_CLIENT_ID\" ] && [ -n \"$TINA_TOKEN\" ] && (tinacms build && next build) || next build",
+    "build": "if [ -n \"$NEXT_PUBLIC_TINA_CLIENT_ID\" ] && [ -n \"$TINA_TOKEN\" ]; then echo '✅ TinaCMS credentials found' && tinacms build && echo '✅ tinacms build OK'; else echo '❌ NEXT_PUBLIC_TINA_CLIENT_ID or TINA_TOKEN missing - admin skipped'; fi && next build",
     "start": "next start",
     "lint": "next lint"
   },
