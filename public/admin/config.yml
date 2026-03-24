@@ -1,0 +1,149 @@
+backend:
+  name: github
+  repo: daninachille-ship-it/Agence-Web
+  branch: main
+  base_url: https://agenceweb-nine.vercel.app
+  auth_endpoint: api/auth
+
+media_folder: public/images
+public_folder: /images
+
+locale: fr
+
+collections:
+
+  # ── Configuration principale ─────────────────────────────────────────────
+  - name: config
+    label: "Configuration du site"
+    files:
+      - name: main
+        label: "Informations générales"
+        file: content/config.json
+        fields:
+
+          - label: "Établissement"
+            name: etablissement
+            widget: object
+            fields:
+              - { label: "Nom", name: nom, widget: string }
+              - { label: "Slogan", name: slogan, widget: string }
+              - { label: "Description (paragraphe 1)", name: description1, widget: text }
+              - { label: "Description (paragraphe 2)", name: description2, widget: text }
+              - { label: "Année d'ouverture", name: annee, widget: string }
+              - { label: "Localisation (ex: Paris 9e)", name: localisation, widget: string }
+              - { label: "Note Google (ex: 4.9)", name: noteGoogle, widget: string }
+              - { label: "Nombre d'avis (ex: 300+)", name: nombreAvis, widget: string }
+              - { label: "Années d'existence (ex: 5 ans)", name: anneesExistence, widget: string }
+
+          - label: "Contact"
+            name: contact
+            widget: object
+            fields:
+              - { label: "Adresse", name: adresse, widget: string }
+              - { label: "Téléphone", name: telephone, widget: string }
+              - { label: "Email", name: email, widget: string }
+              - { label: "Instagram (@handle)", name: instagram, widget: string }
+              - { label: "Facebook", name: facebook, widget: string, required: false }
+              - { label: "Lien réservation", name: lienReservation, widget: string, required: false }
+              - { label: "Lien Google Maps", name: lienGoogleMaps, widget: string, required: false }
+              - { label: "Station de métro", name: metro, widget: string, required: false }
+              - { label: "Parking", name: parking, widget: string, required: false }
+
+          - label: "Horaires"
+            name: horaires
+            widget: list
+            fields:
+              - { label: "Jour", name: jour, widget: string }
+              - { label: "Ouvert", name: ouvert, widget: boolean }
+              - { label: "Ouverture (ex: 08:00)", name: ouverture, widget: string }
+              - { label: "Fermeture (ex: 19:00)", name: fermeture, widget: string }
+
+          - label: "Avis clients"
+            name: avis
+            widget: list
+            fields:
+              - { label: "Note (1-5)", name: note, widget: number, value_type: int }
+              - { label: "Texte", name: texte, widget: text }
+              - { label: "Auteur", name: auteur, widget: string }
+              - { label: "Date", name: date, widget: string }
+
+          - label: "Images"
+            name: images
+            widget: object
+            fields:
+              - { label: "Image Hero (URL)", name: hero, widget: string, required: false }
+              - { label: "Image À propos principale (URL)", name: aboutPrincipale, widget: string, required: false }
+              - { label: "Image À propos secondaire (URL)", name: aboutSecondaire, widget: string, required: false }
+              - label: "Galerie"
+                name: galerie
+                widget: list
+                field: { label: "URL image", name: url, widget: string }
+
+          - label: "Style"
+            name: style
+            widget: object
+            fields:
+              - { label: "Couleur principale (hex)", name: couleurPrincipale, widget: string }
+              - { label: "Couleur secondaire (hex)", name: couleurSecondaire, widget: string }
+              - { label: "Nom de domaine", name: nomDomaine, widget: string }
+
+  # ── Menu ─────────────────────────────────────────────────────────────────
+  - name: menu
+    label: "La carte"
+    files:
+
+      - name: cafes
+        label: "Cafés"
+        file: content/menu/cafes.json
+        fields:
+          - { label: "Catégorie", name: categorie, widget: string }
+          - { label: "Note / Information", name: note, widget: text, required: false }
+          - label: "Plats & Boissons"
+            name: items
+            widget: list
+            fields:
+              - { label: "Nom", name: nom, widget: string }
+              - { label: "Description", name: description, widget: string }
+              - { label: "Prix (ex: 4,50 €)", name: prix, widget: string }
+
+      - name: brunch
+        label: "Brunch"
+        file: content/menu/brunch.json
+        fields:
+          - { label: "Catégorie", name: categorie, widget: string }
+          - { label: "Note / Information", name: note, widget: text, required: false }
+          - label: "Plats & Boissons"
+            name: items
+            widget: list
+            fields:
+              - { label: "Nom", name: nom, widget: string }
+              - { label: "Description", name: description, widget: string }
+              - { label: "Prix (ex: 4,50 €)", name: prix, widget: string }
+
+      - name: boissons
+        label: "Boissons"
+        file: content/menu/boissons.json
+        fields:
+          - { label: "Catégorie", name: categorie, widget: string }
+          - { label: "Note / Information", name: note, widget: text, required: false }
+          - label: "Plats & Boissons"
+            name: items
+            widget: list
+            fields:
+              - { label: "Nom", name: nom, widget: string }
+              - { label: "Description", name: description, widget: string }
+              - { label: "Prix (ex: 4,50 €)", name: prix, widget: string }
+
+      - name: douceurs
+        label: "Douceurs"
+        file: content/menu/douceurs.json
+        fields:
+          - { label: "Catégorie", name: categorie, widget: string }
+          - { label: "Note / Information", name: note, widget: text, required: false }
+          - label: "Plats & Boissons"
+            name: items
+            widget: list
+            fields:
+              - { label: "Nom", name: nom, widget: string }
+              - { label: "Description", name: description, widget: string }
+              - { label: "Prix (ex: 4,50 €)", name: prix, widget: string }

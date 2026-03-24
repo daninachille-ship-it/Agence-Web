@@ -1,6 +1,5 @@
 'use client'
 
-import { useTina, tinaField } from 'tinacms/dist/react'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
@@ -19,85 +18,46 @@ import douceurs from '@/content/menu/douceurs.json'
 
 const MENU_DATA = [cafes, brunch, boissons, douceurs] as any[]
 
-interface HomeClientProps {
-  data: any
-  query: string
-  variables: object
-}
-
-// Renders all sections from a config object
-// config comes from useTina (may be TinaCMS Cloud data in edit mode — unreliable)
-// staticConfig is the source of truth for all data
-function HomeContent({ tina }: { config?: any; tina?: any }) {
+export default function HomeClient() {
   const { etablissement, contact, horaires, avis, images, style } = staticConfig as any
   const menu = MENU_DATA
 
   return (
     <>
       <ScrollReveal />
-
       <Nav nom={etablissement?.nom} />
-
-      {/* Hero */}
-      <div data-tina-field={tina ? tinaField(tina, 'etablissement') : undefined}>
-        <Hero
-          nom={etablissement?.nom}
-          slogan={etablissement?.slogan}
-          localisation={etablissement?.localisation}
-          heroImage={images?.hero}
-        />
-      </div>
-
-      {/* À propos */}
-      <div data-tina-field={tina ? tinaField(tina, 'etablissement') : undefined}>
-        <About
-          nom={etablissement?.nom}
-          description1={etablissement?.description1}
-          description2={etablissement?.description2}
-          annee={etablissement?.annee}
-          noteGoogle={etablissement?.noteGoogle}
-          nombreAvis={etablissement?.nombreAvis}
-          anneesExistence={etablissement?.anneesExistence}
-          aboutPrincipale={images?.aboutPrincipale}
-          aboutSecondaire={images?.aboutSecondaire}
-        />
-      </div>
-
-      {/* Menu */}
-      <div data-tina-field={tina ? tinaField(tina, 'menu') : undefined}>
-        <Menu menu={menu} />
-      </div>
-
-      {/* Galerie */}
-      <div data-tina-field={tina ? tinaField(tina, 'images') : undefined}>
-        <Gallery images={images?.galerie} nom={etablissement?.nom} />
-      </div>
-
-      {/* Horaires */}
-      <div data-tina-field={tina ? tinaField(tina, 'horaires') : undefined}>
-        <Hours horaires={horaires} contact={contact} />
-      </div>
-
-      {/* Avis */}
-      <div data-tina-field={tina ? tinaField(tina, 'avis') : undefined}>
-        <Reviews
-          avis={avis}
-          noteGoogle={etablissement?.noteGoogle}
-          nombreAvis={etablissement?.nombreAvis}
-        />
-      </div>
-
-      {/* Localisation */}
-      <div data-tina-field={tina ? tinaField(tina, 'contact') : undefined}>
-        <MapSection
-          adresse={contact?.adresse}
-          metro={contact?.metro}
-          parking={contact?.parking}
-          lienGoogleMaps={contact?.lienGoogleMaps}
-          nom={etablissement?.nom}
-        />
-      </div>
-
+      <Hero
+        nom={etablissement?.nom}
+        slogan={etablissement?.slogan}
+        localisation={etablissement?.localisation}
+        heroImage={images?.hero}
+      />
+      <About
+        nom={etablissement?.nom}
+        description1={etablissement?.description1}
+        description2={etablissement?.description2}
+        annee={etablissement?.annee}
+        noteGoogle={etablissement?.noteGoogle}
+        nombreAvis={etablissement?.nombreAvis}
+        anneesExistence={etablissement?.anneesExistence}
+        aboutPrincipale={images?.aboutPrincipale}
+        aboutSecondaire={images?.aboutSecondaire}
+      />
+      <Menu menu={menu} />
+      <Gallery images={images?.galerie} nom={etablissement?.nom} />
+      <Hours horaires={horaires} contact={contact} />
+      <Reviews
+        avis={avis}
+        noteGoogle={etablissement?.noteGoogle}
+        nombreAvis={etablissement?.nombreAvis}
+      />
+      <MapSection
+        adresse={contact?.adresse}
+        metro={contact?.metro}
+        parking={contact?.parking}
+        lienGoogleMaps={contact?.lienGoogleMaps}
+        nom={etablissement?.nom}
+      />
       <Footer
         nom={etablissement?.nom}
         description1={etablissement?.description1}
@@ -110,15 +70,4 @@ function HomeContent({ tina }: { config?: any; tina?: any }) {
       />
     </>
   )
-}
-
-// Inner component — always has a valid query, safe to call useTina
-function HomeWithTina({ data, query, variables }: HomeClientProps) {
-  const { data: tinaData } = useTina({ query, variables, data })
-  return <HomeContent config={tinaData.config} tina={tinaData.config} />
-}
-
-// Entry point — always delegates to HomeWithTina (query is always valid)
-export default function HomeClient({ data, query, variables }: HomeClientProps) {
-  return <HomeWithTina data={data} query={query} variables={variables} />
 }
