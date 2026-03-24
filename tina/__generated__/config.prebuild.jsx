@@ -21,6 +21,7 @@ var config_default = defineConfig({
         label: "Configuration du site",
         path: "content",
         format: "json",
+        match: { include: "config" },
         ui: {
           allowedActions: {
             create: false,
