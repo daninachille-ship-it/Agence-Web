@@ -23,13 +23,9 @@ interface HomeClientProps {
 function HomeContent({ config, tina }: { config: any; tina?: any }) {
   const { etablissement, contact, horaires, avis, images, style } = config
 
-  // TinaCMS Cloud returns null for nested lists (list-in-list) — fallback to static JSON
-  const menu = (config.menu ?? staticConfig.menu).map((cat: any, i: number) => ({
-    ...cat,
-    items: (cat?.items ?? []).filter(Boolean).length > 0
-      ? cat.items
-      : (staticConfig.menu[i]?.items ?? []),
-  }))
+  // TinaCMS Cloud cannot reliably index nested list-in-list fields.
+  // Always use static JSON for menu items — changes via admin rebuild anyway.
+  const menu = staticConfig.menu as any[]
 
   return (
     <>
