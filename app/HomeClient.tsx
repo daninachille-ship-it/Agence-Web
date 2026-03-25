@@ -12,22 +12,20 @@ import MapSection from '@/components/MapSection'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
 import staticConfig from '@/content/config.json'
-import cafes from '@/content/menu/cafes.json'
-import brunch from '@/content/menu/brunch.json'
-import boissons from '@/content/menu/boissons.json'
-import douceurs from '@/content/menu/douceurs.json'
-
-const MENU_DATA = [cafes, brunch, boissons, douceurs] as any[]
 
 interface HomeClientProps {
   data: any
   query: string
   variables: object
+  menuQuery: string
+  menuDataCafes: any
+  menuDataBrunch: any
+  menuDataBoissons: any
+  menuDataDouceurs: any
 }
 
-function HomeContent({ tina }: { tina?: any }) {
+function HomeContent({ tina, menu }: { tina?: any; menu: any[] }) {
   const { etablissement, contact, horaires, avis, images, style } = staticConfig as any
-  const menu = MENU_DATA
 
   return (
     <>
@@ -91,11 +89,26 @@ function HomeContent({ tina }: { tina?: any }) {
   )
 }
 
-function HomeWithTina({ data, query, variables }: HomeClientProps) {
+function HomeWithTina({
+  data, query, variables,
+  menuQuery, menuDataCafes, menuDataBrunch, menuDataBoissons, menuDataDouceurs,
+}: HomeClientProps) {
   const { data: tinaData } = useTina({ query, variables, data })
-  return <HomeContent tina={tinaData.config} />
+  const { data: tinaCafes } = useTina({ query: menuQuery, variables: { relativePath: 'cafes.json' }, data: menuDataCafes })
+  const { data: tinaBrunch } = useTina({ query: menuQuery, variables: { relativePath: 'brunch.json' }, data: menuDataBrunch })
+  const { data: tinaBoissons } = useTina({ query: menuQuery, variables: { relativePath: 'boissons.json' }, data: menuDataBoissons })
+  const { data: tinaDouceurs } = useTina({ query: menuQuery, variables: { relativePath: 'douceurs.json' }, data: menuDataDouceurs })
+
+  const menu = [
+    tinaCafes?.menuCategorie,
+    tinaBrunch?.menuCategorie,
+    tinaBoissons?.menuCategorie,
+    tinaDouceurs?.menuCategorie,
+  ].filter(Boolean)
+
+  return <HomeContent tina={tinaData?.config} menu={menu} />
 }
 
-export default function HomeClient({ data, query, variables }: HomeClientProps) {
-  return <HomeWithTina data={data} query={query} variables={variables} />
+export default function HomeClient(props: HomeClientProps) {
+  return <HomeWithTina {...props} />
 }
