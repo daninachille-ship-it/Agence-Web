@@ -257,6 +257,18 @@
               },
               {
                 "type": "string",
+                "name": "transportLabel",
+                "label": "Type de transport (ex: Métro, Bus, Tramway, RER…)",
+                "namespace": [
+                  "config",
+                  "contact",
+                  "transportLabel"
+                ],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "type": "string",
                 "name": "parking",
                 "label": "Informations parking",
                 "namespace": [
@@ -2355,6 +2367,21 @@
             "kind": "FieldDefinition",
             "name": {
               "kind": "Name",
+              "value": "transportLabel"
+            },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": {
+              "kind": "Name",
               "value": "parking"
             },
             "arguments": [],
@@ -3129,6 +3156,20 @@
             "name": {
               "kind": "Name",
               "value": "metro"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "StringFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "transportLabel"
             },
             "type": {
               "kind": "NamedType",
@@ -5085,6 +5126,20 @@
             "name": {
               "kind": "Name",
               "value": "metro"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "transportLabel"
             },
             "type": {
               "kind": "NamedType",

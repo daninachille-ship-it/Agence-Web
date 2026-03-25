@@ -60,7 +60,8 @@ var config_default = defineConfig({
               { type: "string", name: "facebook", label: "Facebook (URL)" },
               { type: "string", name: "lienReservation", label: "Lien de r\xE9servation (URL)" },
               { type: "string", name: "lienGoogleMaps", label: "Lien Google Maps" },
-              { type: "string", name: "metro", label: "Stations de m\xE9tro proches" },
+              { type: "string", name: "transportLabel", label: "Type de transport (ex: M\xE9tro, Bus, Tramway, RER\u2026)" },
+              { type: "string", name: "metro", label: "D\xE9tail du transport (lignes, stations\u2026)" },
               { type: "string", name: "parking", label: "Informations parking" }
             ]
           },
