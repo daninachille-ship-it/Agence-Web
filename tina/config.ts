@@ -121,6 +121,25 @@ export default defineConfig({
             ],
           },
 
+          // ─── MENTIONS LÉGALES ────────────────────────────────────────────
+          {
+            type: 'object',
+            name: 'mentionsLegales',
+            label: 'Mentions légales',
+            fields: [
+              { type: 'string', name: 'editeurNom', label: 'Nom de l\'éditeur / société' },
+              { type: 'string', name: 'editeurStatut', label: 'Forme juridique (ex: SARL, SAS, EI…)' },
+              { type: 'string', name: 'editeurSiret', label: 'Numéro SIRET' },
+              { type: 'string', name: 'editeurAdresse', label: 'Adresse de l\'éditeur' },
+              { type: 'string', name: 'editeurCapital', label: 'Capital social (ex: 1 000 €)' },
+              { type: 'string', name: 'directeurPublication', label: 'Directeur de la publication' },
+              { type: 'string', name: 'hebergeurNom', label: 'Hébergeur — Nom' },
+              { type: 'string', name: 'hebergeurAdresse', label: 'Hébergeur — Adresse' },
+              { type: 'string', name: 'hebergeurSite', label: 'Hébergeur — Site web' },
+              { type: 'string', name: 'texteComplementaire', label: 'Informations complémentaires (optionnel)', ui: { component: 'textarea' } },
+            ],
+          },
+
           // ─── STYLE ───────────────────────────────────────────────────────
           {
             type: 'object',
