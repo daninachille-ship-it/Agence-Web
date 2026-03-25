@@ -18,6 +18,7 @@
     "facebook": "",
     "lienReservation": "",
     "lienGoogleMaps": "https://maps.google.com",
+    "transportLabel": "Métro",
     "metro": "Saint-Georges · ligne 12 / Pigalle · lignes 2 & 12",
     "parking": "Parking Martyrs à 100m"
   },

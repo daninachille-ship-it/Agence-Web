@@ -70,6 +70,7 @@ function HomeContent({ tina, menu }: { tina?: any; menu: any[] }) {
         <MapSection
           adresse={contact?.adresse}
           metro={contact?.metro}
+          transportLabel={contact?.transportLabel}
           parking={contact?.parking}
           lienGoogleMaps={contact?.lienGoogleMaps}
           nom={etablissement?.nom}
