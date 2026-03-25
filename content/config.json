@@ -90,16 +90,16 @@
     "aboutPrincipale": "/images/IMG_1135.jpeg",
     "aboutSecondaire": "/images/IMG_1137.jpeg",
     "galerie": [
-      "https://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1140.jpeg",
-      "https://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1141.jpeg",
-      "https://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1139.jpeg",
-      "https://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1137.jpeg",
-      "https://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1136.jpeg"
+      "/imageshttps://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1140.jpeg",
+      "/imageshttps://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1141.jpeg",
+      "/imageshttps://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1139.jpeg",
+      "/imageshttps://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1137.jpeg",
+      "/imageshttps://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1136.jpeg"
     ]
   },
   "style": {
     "couleurPrincipale": "#B5603E",
     "couleurSecondaire": "#3D2314",
-    "nomDomaine": "maisonblend.fr"
+    "nomDomaine": "maisonblend.com"
   }
 }
