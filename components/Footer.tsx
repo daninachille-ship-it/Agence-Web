@@ -149,9 +149,14 @@ export default function Footer({
 
         {/* ── Copyright ─────────────────────────────────────── */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="font-jost font-light text-[#FDFAF4]/30 text-xs">
-            © {year} {nom} — {nomDomaine}. Tous droits réservés.
-          </p>
+          <div className="flex items-center gap-6">
+            <p className="font-jost font-light text-[#FDFAF4]/30 text-xs">
+              © {year} {nom} — {nomDomaine}. Tous droits réservés.
+            </p>
+            <a href="/mentions-legales" className="font-jost font-light text-[#FDFAF4]/30 text-xs hover:text-terra transition-colors">
+              Mentions légales
+            </a>
+          </div>
           <p className="font-jost font-light text-[#FDFAF4]/20 text-xs">
             Site réalisé par{' '}
             <span className="text-terra/60">Votre Agence Web</span>

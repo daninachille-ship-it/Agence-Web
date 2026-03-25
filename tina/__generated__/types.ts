@@ -234,6 +234,20 @@ export type ConfigImages = {
   galerie?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
+export type ConfigMentionsLegales = {
+  __typename?: 'ConfigMentionsLegales';
+  editeurNom?: Maybe<Scalars['String']['output']>;
+  editeurStatut?: Maybe<Scalars['String']['output']>;
+  editeurSiret?: Maybe<Scalars['String']['output']>;
+  editeurAdresse?: Maybe<Scalars['String']['output']>;
+  editeurCapital?: Maybe<Scalars['String']['output']>;
+  directeurPublication?: Maybe<Scalars['String']['output']>;
+  hebergeurNom?: Maybe<Scalars['String']['output']>;
+  hebergeurAdresse?: Maybe<Scalars['String']['output']>;
+  hebergeurSite?: Maybe<Scalars['String']['output']>;
+  texteComplementaire?: Maybe<Scalars['String']['output']>;
+};
+
 export type ConfigStyle = {
   __typename?: 'ConfigStyle';
   couleurPrincipale?: Maybe<Scalars['String']['output']>;
@@ -248,6 +262,7 @@ export type Config = Node & Document & {
   horaires?: Maybe<Array<Maybe<ConfigHoraires>>>;
   avis?: Maybe<Array<Maybe<ConfigAvis>>>;
   images?: Maybe<ConfigImages>;
+  mentionsLegales?: Maybe<ConfigMentionsLegales>;
   style?: Maybe<ConfigStyle>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -335,12 +350,26 @@ export type ConfigStyleFilter = {
   nomDomaine?: InputMaybe<StringFilter>;
 };
 
+export type ConfigMentionsLegalesFilter = {
+  editeurNom?: InputMaybe<StringFilter>;
+  editeurStatut?: InputMaybe<StringFilter>;
+  editeurSiret?: InputMaybe<StringFilter>;
+  editeurAdresse?: InputMaybe<StringFilter>;
+  editeurCapital?: InputMaybe<StringFilter>;
+  directeurPublication?: InputMaybe<StringFilter>;
+  hebergeurNom?: InputMaybe<StringFilter>;
+  hebergeurAdresse?: InputMaybe<StringFilter>;
+  hebergeurSite?: InputMaybe<StringFilter>;
+  texteComplementaire?: InputMaybe<StringFilter>;
+};
+
 export type ConfigFilter = {
   etablissement?: InputMaybe<ConfigEtablissementFilter>;
   contact?: InputMaybe<ConfigContactFilter>;
   horaires?: InputMaybe<ConfigHorairesFilter>;
   avis?: InputMaybe<ConfigAvisFilter>;
   images?: InputMaybe<ConfigImagesFilter>;
+  mentionsLegales?: InputMaybe<ConfigMentionsLegalesFilter>;
   style?: InputMaybe<ConfigStyleFilter>;
 };
 
@@ -532,12 +561,26 @@ export type ConfigStyleMutation = {
   nomDomaine?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ConfigMentionsLegalesMutation = {
+  editeurNom?: InputMaybe<Scalars['String']['input']>;
+  editeurStatut?: InputMaybe<Scalars['String']['input']>;
+  editeurSiret?: InputMaybe<Scalars['String']['input']>;
+  editeurAdresse?: InputMaybe<Scalars['String']['input']>;
+  editeurCapital?: InputMaybe<Scalars['String']['input']>;
+  directeurPublication?: InputMaybe<Scalars['String']['input']>;
+  hebergeurNom?: InputMaybe<Scalars['String']['input']>;
+  hebergeurAdresse?: InputMaybe<Scalars['String']['input']>;
+  hebergeurSite?: InputMaybe<Scalars['String']['input']>;
+  texteComplementaire?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ConfigMutation = {
   etablissement?: InputMaybe<ConfigEtablissementMutation>;
   contact?: InputMaybe<ConfigContactMutation>;
   horaires?: InputMaybe<Array<InputMaybe<ConfigHorairesMutation>>>;
   avis?: InputMaybe<Array<InputMaybe<ConfigAvisMutation>>>;
   images?: InputMaybe<ConfigImagesMutation>;
+  mentionsLegales?: InputMaybe<ConfigMentionsLegalesMutation>;
   style?: InputMaybe<ConfigStyleMutation>;
 };
 
@@ -553,7 +596,7 @@ export type MenuCategorieMutation = {
   items?: InputMaybe<Array<InputMaybe<MenuCategorieItemsMutation>>>;
 };
 
-export type ConfigPartsFragment = { __typename: 'Config', etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, transportLabel?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null };
+export type ConfigPartsFragment = { __typename: 'Config', etablissement?: { __typename: 'ConfigEtablissement', nom?: string | null, slogan?: string | null, description1?: string | null, description2?: string | null, annee?: string | null, localisation?: string | null, noteGoogle?: string | null, nombreAvis?: string | null, anneesExistence?: string | null } | null, contact?: { __typename: 'ConfigContact', adresse?: string | null, telephone?: string | null, email?: string | null, instagram?: string | null, facebook?: string | null, lienReservation?: string | null, lienGoogleMaps?: string | null, metro?: string | null, transportLabel?: string | null, parking?: string | null } | null, horaires?: Array<{ __typename: 'ConfigHoraires', jour?: string | null, ouvert?: boolean | null, ouverture?: string | null, fermeture?: string | null } | null> | null, avis?: Array<{ __typename: 'ConfigAvis', note?: number | null, texte?: string | null, auteur?: string | null, date?: string | null } | null> | null, images?: { __typename: 'ConfigImages', hero?: string | null, aboutPrincipale?: string | null, aboutSecondaire?: string | null, galerie?: Array<string | null> | null } | null, mentionsLegales?: { __typename: 'ConfigMentionsLegales', editeurNom?: string | null, editeurStatut?: string | null, editeurSiret?: string | null, editeurAdresse?: string | null, editeurCapital?: string | null, directeurPublication?: string | null, hebergeurNom?: string | null, hebergeurAdresse?: string | null, hebergeurSite?: string | null, texteComplementaire?: string | null } | null, style?: { __typename: 'ConfigStyle', couleurPrincipale?: string | null, couleurSecondaire?: string | null, nomDomaine?: string | null } | null };
 
 export type MenuCategoriePartsFragment = { __typename: 'MenuCategorie', categorie?: string | null, note?: string | null, items?: Array<{ __typename: 'MenuCategorieItems', nom?: string | null, description?: string | null, prix?: string | null } | null> | null };
 
@@ -643,6 +686,19 @@ export const ConfigPartsFragmentDoc = gql`
     aboutPrincipale
     aboutSecondaire
     galerie
+  }
+  mentionsLegales {
+    __typename
+    editeurNom
+    editeurStatut
+    editeurSiret
+    editeurAdresse
+    editeurCapital
+    directeurPublication
+    hebergeurNom
+    hebergeurAdresse
+    hebergeurSite
+    texteComplementaire
   }
   style {
     __typename

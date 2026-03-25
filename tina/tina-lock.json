@@ -480,6 +480,26 @@
           },
           {
             "type": "object",
+            "name": "mentionsLegales",
+            "label": "Mentions légales",
+            "fields": [
+              { "type": "string", "name": "editeurNom", "label": "Nom de l'éditeur / société", "namespace": ["config", "mentionsLegales", "editeurNom"], "searchable": true, "uid": false },
+              { "type": "string", "name": "editeurStatut", "label": "Forme juridique", "namespace": ["config", "mentionsLegales", "editeurStatut"], "searchable": true, "uid": false },
+              { "type": "string", "name": "editeurSiret", "label": "Numéro SIRET", "namespace": ["config", "mentionsLegales", "editeurSiret"], "searchable": true, "uid": false },
+              { "type": "string", "name": "editeurAdresse", "label": "Adresse de l'éditeur", "namespace": ["config", "mentionsLegales", "editeurAdresse"], "searchable": true, "uid": false },
+              { "type": "string", "name": "editeurCapital", "label": "Capital social", "namespace": ["config", "mentionsLegales", "editeurCapital"], "searchable": true, "uid": false },
+              { "type": "string", "name": "directeurPublication", "label": "Directeur de la publication", "namespace": ["config", "mentionsLegales", "directeurPublication"], "searchable": true, "uid": false },
+              { "type": "string", "name": "hebergeurNom", "label": "Hébergeur — Nom", "namespace": ["config", "mentionsLegales", "hebergeurNom"], "searchable": true, "uid": false },
+              { "type": "string", "name": "hebergeurAdresse", "label": "Hébergeur — Adresse", "namespace": ["config", "mentionsLegales", "hebergeurAdresse"], "searchable": true, "uid": false },
+              { "type": "string", "name": "hebergeurSite", "label": "Hébergeur — Site web", "namespace": ["config", "mentionsLegales", "hebergeurSite"], "searchable": true, "uid": false },
+              { "type": "string", "name": "texteComplementaire", "label": "Informations complémentaires", "namespace": ["config", "mentionsLegales", "texteComplementaire"], "searchable": true, "uid": false }
+            ],
+            "namespace": ["config", "mentionsLegales"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "object",
             "name": "style",
             "label": "Style & Couleurs",
             "fields": [
@@ -2615,6 +2635,24 @@
         "kind": "ObjectTypeDefinition",
         "interfaces": [],
         "directives": [],
+        "name": { "kind": "Name", "value": "ConfigMentionsLegales" },
+        "fields": [
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "editeurNom" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "editeurStatut" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "editeurSiret" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "editeurAdresse" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "editeurCapital" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "directeurPublication" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "hebergeurNom" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "hebergeurAdresse" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "hebergeurSite" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "FieldDefinition", "name": { "kind": "Name", "value": "texteComplementaire" }, "arguments": [], "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
         "name": {
           "kind": "Name",
           "value": "ConfigStyle"
@@ -2771,6 +2809,12 @@
                 "value": "ConfigImages"
               }
             }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "mentionsLegales" },
+            "arguments": [],
+            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "ConfigMentionsLegales" } }
           },
           {
             "kind": "FieldDefinition",
@@ -3607,6 +3651,22 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "ConfigMentionsLegalesFilter" },
+        "fields": [
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurNom" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurStatut" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurSiret" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurAdresse" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurCapital" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "directeurPublication" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "hebergeurNom" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "hebergeurAdresse" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "hebergeurSite" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "texteComplementaire" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } } }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
           "value": "ConfigStyleFilter"
@@ -3732,6 +3792,11 @@
                 "value": "ConfigImagesFilter"
               }
             }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "mentionsLegales" },
+            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "ConfigMentionsLegalesFilter" } }
           },
           {
             "kind": "InputValueDefinition",
@@ -5416,6 +5481,22 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "ConfigMentionsLegalesMutation" },
+        "fields": [
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurNom" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurStatut" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurSiret" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurAdresse" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "editeurCapital" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "directeurPublication" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "hebergeurNom" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "hebergeurAdresse" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "hebergeurSite" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } },
+          { "kind": "InputValueDefinition", "name": { "kind": "Name", "value": "texteComplementaire" }, "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } } }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
           "value": "ConfigMutation"
@@ -5496,6 +5577,11 @@
                 "value": "ConfigImagesMutation"
               }
             }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "mentionsLegales" },
+            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "ConfigMentionsLegalesMutation" } }
           },
           {
             "kind": "InputValueDefinition",

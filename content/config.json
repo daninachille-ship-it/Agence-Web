@@ -98,6 +98,18 @@
       "https://assets.tina.io/4a7aeaf9-d62e-422a-b8d3-b759f68788ed/IMG_1136.jpeg"
     ]
   },
+  "mentionsLegales": {
+    "editeurNom": "Maison Blend",
+    "editeurStatut": "SARL",
+    "editeurSiret": "000 000 000 00000",
+    "editeurAdresse": "12 rue des Martyrs, 75009 Paris",
+    "editeurCapital": "10 000 €",
+    "directeurPublication": "Prénom Nom",
+    "hebergeurNom": "Vercel Inc.",
+    "hebergeurAdresse": "340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis",
+    "hebergeurSite": "https://vercel.com",
+    "texteComplementaire": ""
+  },
   "style": {
     "couleurPrincipale": "#B5603E",
     "couleurSecondaire": "#3D2314",
