@@ -159,7 +159,7 @@ export default function Footer({
           </div>
           <p className="font-jost font-light text-[#FDFAF4]/20 text-xs">
             Site réalisé par{' '}
-            <span className="text-terra/60">Votre Agence Web</span>
+            <span className="text-terra/60">AURESLYS STUDIO</span>
           </p>
         </div>
       </div>
