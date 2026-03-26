@@ -45,10 +45,10 @@ export default function Footer({
       <div className="max-w-7xl mx-auto">
 
         {/* ── 4-column grid ─────────────────────────────────── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pb-16 border-b border-[#FDFAF4]/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-12 pb-16 border-b border-[#FDFAF4]/10">
 
           {/* Col 1: Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1 pb-4 md:pb-0 border-b border-[#FDFAF4]/10 md:border-none">
             <a href="#" className="font-playfair text-xl font-semibold text-[#FDFAF4] block mb-4">
               {nom}
             </a>
@@ -148,8 +148,8 @@ export default function Footer({
         </div>
 
         {/* ── Copyright ─────────────────────────────────────── */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-6">
+        <div className="pt-8 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
             <p className="font-jost font-light text-[#FDFAF4]/30 text-xs">
               © {year} {nom} — {nomDomaine}. Tous droits réservés.
             </p>
