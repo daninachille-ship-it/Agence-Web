@@ -22,7 +22,7 @@ export default function Hero({ nom, slogan, localisation, heroImage, heroCta }: 
     <section className="relative h-screen w-full overflow-hidden bg-ink">
       {/* Background with zoom animation */}
       <div
-        className="absolute inset-0 bg-[size:100%_auto] md:bg-cover bg-top md:bg-center animate-hero-zoom"
+        className="absolute inset-0 bg-no-repeat bg-[size:150%_auto] md:bg-cover bg-top md:bg-center animate-hero-zoom"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
 
