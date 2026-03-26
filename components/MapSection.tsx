@@ -14,10 +14,10 @@ export default function MapSection({ adresse, metro, transportLabel, parking, li
   const embedUrl = `https://maps.google.com/maps?q=${encodedAddr}&output=embed`
 
   return (
-    <section id="trouver" className="w-full grid md:grid-cols-2 h-[480px] md:h-[520px]">
+    <section id="trouver" className="w-full grid md:grid-cols-2 md:h-[520px]">
 
       {/* ── Left: Map iframe ─────────────────────────────────── */}
-      <div className="relative h-full">
+      <div className="relative h-[260px] md:h-full">
         <iframe
           src={embedUrl}
           width="100%"
@@ -32,7 +32,7 @@ export default function MapSection({ adresse, metro, transportLabel, parking, li
       </div>
 
       {/* ── Right: Info panel ────────────────────────────────── */}
-      <div className="bg-wood flex flex-col justify-center px-12 md:px-16 py-14">
+      <div className="bg-wood flex flex-col justify-center px-8 md:px-16 py-12 md:py-14">
         <p className="r font-jost text-xs tracking-[0.3em] uppercase text-terra mb-4">
           Nous trouver
         </p>
